@@ -1,4 +1,4 @@
-name: S0 and S1-A quality
+name: S1-B and baseline quality
 on:
   push:
     branches: ['codex/**']
@@ -8,7 +8,7 @@ permissions:
   contents: read
 jobs:
   full-s0-windows:
-    name: Windows Python 3.12 - S1-A and full S0
+    name: Windows Python 3.12 - S1-B, S1-A and S0
     runs-on: windows-latest
     timeout-minutes: 20
     steps:
@@ -24,12 +24,12 @@ jobs:
         run: |
           git clone --no-checkout https://github.com/Whsjbwy/AUVWorkPlace.git "$env:RUNNER_TEMP/s0-source"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: S1-A full regression, 100 snapshots and original S0
-        run: python scripts/verify_s1a.py --source "$env:RUNNER_TEMP/s0-source"
+      - name: S1-B geometry, swept collision and complete baseline regressions
+        run: python scripts/verify_s1b.py --source "$env:RUNNER_TEMP/s0-source"
       - name: Preserve actual evidence even on failure
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: s1a-windows-evidence
-          path: results/s1a/
+          name: s1b-windows-evidence
+          path: results/s1b/
           retention-days: 14

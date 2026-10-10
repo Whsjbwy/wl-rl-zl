@@ -13,3 +13,6 @@ run_remus.py -text
 
 # 用户任务卡按附件字节保留；Markdown 两个行尾空格为原有硬换行。
 docs/tasks/S1A_* -text whitespace=-blank-at-eol
+
+# S1-B 用户任务卡同样按附件字节保留，原Markdown硬换行不改写。
+docs/tasks/S1B_* -text whitespace=-blank-at-eol

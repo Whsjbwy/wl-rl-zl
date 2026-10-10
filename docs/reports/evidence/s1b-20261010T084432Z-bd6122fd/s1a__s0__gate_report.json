@@ -1,0 +1,489 @@
+{
+  "stage": "S0",
+  "task_version": "1.0",
+  "protocol_version": "仓库审计版_V1",
+  "status": "PASS",
+  "target_repository": "Whsjbwy/wl-rl-zl",
+  "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1",
+  "tested_base_commit": "06abee4e5392bce63b1faa84b4b9faa55ed4a87c",
+  "tested_content_sha256": "daedc4a6aaa9fd0938a57ece47baffad24b9167759b6c1d8c94ba81848e6ea03",
+  "config_sha256": "523e78e0d1523cef19a7c1ec588855648de47b45b5e83733bd5cc264fb24935c",
+  "working_tree_dirty": true,
+  "execution_environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": ".\\.venv\\Scripts\\python.exe",
+    "processor": "AMD Ryzen 5 9600X 6-Core Processor",
+    "device": "CPU",
+    "gpu_info": "NVIDIA GeForce RTX 5060, 596.21",
+    "gpu_validation": "NOT_RUN",
+    "dependencies": {
+      "python_vehicle_simulator": "1.0.1",
+      "attrs": "26.1.0",
+      "colorama": "0.4.6",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.66.1",
+      "iniconfig": "2.3.1",
+      "jsonschema": "4.25.1",
+      "jsonschema-specifications": "2025.9.1",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "mypy": "1.18.2",
+      "mypy_extensions": "1.1.0",
+      "numpy": "2.5.3",
+      "packaging": "26.3",
+      "pathspec": "1.1.1",
+      "pillow": "12.3.0",
+      "pip": "25.0.1",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0",
+      "pyparsing": "3.3.3",
+      "pytest": "9.1.1",
+      "python-dateutil": "2.9.0.post0",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.9.1",
+      "ruff": "0.13.3",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0"
+    }
+  },
+  "run_id": "s0",
+  "commands": [
+    {
+      "name": "ruff",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "scripts",
+        "tests"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 0.19103890000042156,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\ruff.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\ruff.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "format",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "scripts",
+        "tests"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 0.1896928999994998,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\format.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\format.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "types",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "scripts"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 0.8484330999999656,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\types.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\types.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "unit",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests",
+        "-q",
+        "--junitxml=.\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\unit.xml"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 9.804819499997393,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\unit.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\unit.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "module_probe",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import importlib; print(importlib.import_module('python_vehicle_simulator.vehicles.remus100').__file__)"
+      ],
+      "cwd": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\baseline",
+      "exit_code": 0,
+      "duration_s": 0.9948282999976072,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\module_probe.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\module_probe.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "upstream",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "PythonVehicleSimulator/tests/test_propeller_advance_speed.py",
+        "PythonVehicleSimulator/tests/test_crossflow_drag.py",
+        "PythonVehicleSimulator/tests/test_simulate.py::test_remus100",
+        "-q",
+        "--junitxml=.\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\upstream.xml"
+      ],
+      "cwd": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\baseline",
+      "exit_code": 0,
+      "duration_s": 3.702982400001929,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\upstream.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\upstream.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "regression",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "run_remus.py",
+        "--no-animation"
+      ],
+      "cwd": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\baseline",
+      "exit_code": 0,
+      "duration_s": 3.833630599998287,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\regression.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\regression.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "pip_check",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 1.538353099997039,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\pip_check.stdout.log",
+      "stderr": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\pip_check.stderr.log",
+      "status": "PASS"
+    }
+  ],
+  "checks": [
+    {
+      "name": "environment",
+      "status": "PASS",
+      "details": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+        "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD"
+      },
+      "duration_s": 0.5970049999996263
+    },
+    {
+      "name": "source",
+      "status": "PASS",
+      "details": {
+        "files_verified": 36,
+        "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1"
+      },
+      "duration_s": 0.10623090000080992
+    },
+    {
+      "name": "lock",
+      "status": "PASS",
+      "details": {
+        "colorama": "0.4.6",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.66.1",
+        "iniconfig": "2.3.1",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pluggy": "1.6.0",
+        "Pygments": "2.21.0",
+        "pyparsing": "3.3.3",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "six": "1.17.0",
+        "ruff": "0.13.3",
+        "mypy": "1.18.2",
+        "jsonschema": "4.25.1"
+      },
+      "duration_s": 0.035947100001067156
+    },
+    {
+      "name": "ruff",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "format",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "types",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "unit",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "unit_results",
+      "status": "PASS",
+      "details": {
+        "tests": 159
+      },
+      "duration_s": 0.0007438000029651448
+    },
+    {
+      "name": "import_path",
+      "status": "PASS",
+      "details": {
+        "module_path": ".\\results\\s1b\\20261010T084432Z-bd6122fd\\s1a\\s0\\baseline\\PythonVehicleSimulator\\src\\python_vehicle_simulator\\vehicles\\remus100.py"
+      },
+      "duration_s": 0.006380700000590878
+    },
+    {
+      "name": "upstream",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "upstream_results",
+      "status": "PASS",
+      "details": {
+        "tests": 4
+      },
+      "duration_s": 0.00040359999911743216
+    },
+    {
+      "name": "regression",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "numerical",
+      "status": "PASS",
+      "details": {
+        "actual": {
+          "final_depth_m": 29.74975474011636,
+          "final_heading_deg": 49.998898184993784,
+          "path_length_m": 453.5508894768102
+        },
+        "difference": {
+          "final_depth_m": 4.740116359869262e-06,
+          "final_heading_deg": 1.815006214656023e-06,
+          "path_length_m": 5.231897830526577e-07
+        },
+        "samples": 10001,
+        "duration_s": 200.0,
+        "all_states_finite": true
+      },
+      "duration_s": 0.08130900000105612
+    },
+    {
+      "name": "pip_check",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "source_after",
+      "status": "PASS",
+      "details": {
+        "files_verified": 36,
+        "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1"
+      },
+      "duration_s": 0.10545759999877191
+    },
+    {
+      "name": "fingerprint_after",
+      "status": "PASS",
+      "details": {
+        "sha256": "daedc4a6aaa9fd0938a57ece47baffad24b9167759b6c1d8c94ba81848e6ea03"
+      },
+      "duration_s": 0.014976200000091922
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/format.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/format.stdout.log",
+      "sha256": "edc30689f9fd3dc494be14b82b3b560778897cff7435d2cc81d54f1829d5038d"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/module_probe.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/module_probe.stdout.log",
+      "sha256": "e57809cea06f09cbd8d16046070ba044fc124c35baececba691df5bf7c80d560"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/pip_check.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/pip_check.stdout.log",
+      "sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/regression.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/regression.stdout.log",
+      "sha256": "0beb9de076b8ced19991b18498b2dc88ab92606499dc399221d44c242df88f14"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/resolved_config.json",
+      "sha256": "29cfaf8b24d08b945f3581ee4928c0a75bf11396d76ae39cbe2ef4c364bf3ec6"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/ruff.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/ruff.stdout.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/tested_content.json",
+      "sha256": "43e9fbb09cfb49ebdb045ad83fdeb97358d46ceb59d659a64c7bc115eb9f02a7"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/types.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/types.stdout.log",
+      "sha256": "6b17fb6a37a46097878dda7d24d47ea3abd7a26d94efdbf8f17ad1c639872d16"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/unit.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/unit.stdout.log",
+      "sha256": "47b73953c7206446b423bae1431e457deb4a67b28d3bde6e969a7812146d7524"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/unit.xml",
+      "sha256": "fcb573f4d9837a20cf5c882966391c7b5bcf20c512a8ca7f027372df034c7517"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/upstream.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/upstream.stdout.log",
+      "sha256": "9d5a2646cfea101970d3c6e3eb8c2650770734a095b2562b4c25cf9f554c913c"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/upstream.xml",
+      "sha256": "fd5610997f856686cafd6f2fd985ab6aa83ed1e3109ce0e31752472c86965ab7"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/baseline/results/remus100/controls.png",
+      "sha256": "afc21170ebe394ba7664ed2337c0fa35a513afedc08f9ef9eb681b023470a1f6"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/baseline/results/remus100/simulation.csv",
+      "sha256": "fafc07d267afc5be7075e0a6a571c7b80963578f59cad2ab3c1bb1c9dfb498ba"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/baseline/results/remus100/states.png",
+      "sha256": "96cc9e3001ffabf758ef1886145176aefc58e37d47edcf8b62a5202709f28ddc"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/baseline/results/remus100/summary.json",
+      "sha256": "4a01da1b0f3c50f2ecae9def6456a5654e4f24e70836a88f18c2eb5f730cd472"
+    },
+    {
+      "path": "results/s1b/20261010T084432Z-bd6122fd/s1a/s0/baseline/results/remus100/trajectory.png",
+      "sha256": "17ed0c919574cca06fe54027d302878007a13955839f7928a503fc7bdfca1fcf"
+    }
+  ],
+  "thresholds": {
+    "duration_s": 200.0,
+    "dt_s": 0.02,
+    "samples": 10001,
+    "parameters": {
+      "duration": 200,
+      "depth": 30,
+      "heading": 50,
+      "rpm": 1525,
+      "current": 0.5,
+      "current_direction": 170,
+      "no_animation": true
+    },
+    "reference": {
+      "final_depth_m": 29.74975,
+      "final_heading_deg": 49.9989,
+      "path_length_m": 453.55089
+    },
+    "tolerance": {
+      "final_depth_m": 0.001,
+      "final_heading_deg": 0.001,
+      "path_length_m": 0.01
+    },
+    "time_tolerance_s": 1e-09,
+    "summary_tolerance": 1e-08,
+    "timeout_s": 300,
+    "expected_upstream_tests": 4,
+    "seed": null
+  },
+  "unresolved_issues": [],
+  "windows_validation": "PASS",
+  "remote_sync": {
+    "status": "PENDING",
+    "ci_status": "NOT_RUN"
+  },
+  "next_stage": {
+    "name": "S1",
+    "authorized": false
+  }
+}

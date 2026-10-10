@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "stage",
+    "parent_stage",
+    "parent_status",
+    "task_version",
+    "status",
+    "base_sha",
+    "run_id",
+    "run_directory",
+    "tested_content_sha256",
+    "config_sha256",
+    "environment",
+    "commands",
+    "checks",
+    "artifacts",
+    "unresolved_issues"
+  ],
+  "properties": {
+    "stage": {
+      "const": "S1-B"
+    },
+    "parent_stage": {
+      "const": "S1"
+    },
+    "parent_status": {
+      "const": "PENDING"
+    },
+    "task_version": {
+      "const": "1.0"
+    },
+    "status": {
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ]
+    },
+    "base_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "tested_content_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "config_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "exit_code"
+        ]
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_RUN"
+            ]
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ]
+      }
+    },
+    "unresolved_issues": {
+      "type": "array"
+    }
+  }
+}

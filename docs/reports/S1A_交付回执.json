@@ -1,0 +1,22 @@
+{
+  "stage": "S1-A",
+  "delivery_commit": "75f94609b02f6383770ae591ecaa37fea95befe0",
+  "pr_url": "https://github.com/Whsjbwy/wl-rl-zl/pull/2",
+  "merged": true,
+  "merged_at": "2026-10-10T08:13:35Z",
+  "merge_commit": "06abee4e5392bce63b1faa84b4b9faa55ed4a87c",
+  "s1b_base_sha": "06abee4e5392bce63b1faa84b4b9faa55ed4a87c",
+  "head_changed": false,
+  "main_tree_matches_delivery": true,
+  "ci": [
+    {
+      "run_id": 38035006688,
+      "conclusion": "success"
+    },
+    {
+      "run_id": 38035031675,
+      "conclusion": "success"
+    }
+  ],
+  "scope": "重新查询PR合并状态、head及对应CI，main文件树与审核交付相同；历史报告不改写。"
+}
