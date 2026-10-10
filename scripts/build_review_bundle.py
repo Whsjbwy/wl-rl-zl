@@ -137,10 +137,26 @@ def build(root: Path, run: Path, before: Path, ci: Path, receipt: Path, output: 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    for name in ("run", "before", "ci", "receipt"):
+    parser.add_argument("--stage", choices=["S1B_R1", "S1C"], default="S1B_R1")
+    parser.add_argument("--before", type=Path)
+    for name in ("run", "ci", "receipt"):
         parser.add_argument("--" + name, type=Path, required=True)
     parser.add_argument("--output", type=Path, default=Path("review_packages"))
     args = parser.parse_args()
+    if args.stage == "S1C":
+        from scripts.s1c_bundle import build as build_s1c
+
+        result = build_s1c(
+            Path(__file__).resolve().parents[1],
+            args.run.resolve(),
+            args.ci.resolve(),
+            args.receipt.resolve(),
+            args.output.resolve(),
+        )
+        print(json.dumps({"zip": str(result)}, ensure_ascii=False))
+        raise SystemExit(0)
+    if args.before is None:
+        parser.error("S1B_R1需要--before")
     result = build(
         Path(__file__).resolve().parents[1],
         args.run.resolve(),

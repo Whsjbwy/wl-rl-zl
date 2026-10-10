@@ -1,4 +1,4 @@
-name: S1-B-R1 and baseline quality
+name: S1-C L1 core and complete baseline
 on:
   push:
     branches: ['codex/**']
@@ -8,9 +8,9 @@ permissions:
   contents: read
 jobs:
   full-s0-windows:
-    name: Windows Python 3.12 - S1-B-R1 and full baseline
+    name: Windows Python 3.12 - S1-C L1 and full baseline
     runs-on: windows-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,12 +24,12 @@ jobs:
         run: |
           git clone --no-checkout https://github.com/Whsjbwy/AUVWorkPlace.git "$env:RUNNER_TEMP/s0-source"
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-      - name: S1-B geometry, swept collision and complete baseline regressions
-        run: python scripts/verify_s1b_r1.py --source "$env:RUNNER_TEMP/s0-source"
+      - name: S1-C current and L1 validation with one complete R1 regression
+        run: python scripts/verify_s1c.py --source "$env:RUNNER_TEMP/s0-source"
       - name: Preserve actual evidence even on failure
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: s1b-r1-windows-evidence
-          path: results/s1b_r1/
+          name: s1c-windows-evidence
+          path: results/s1c/
           retention-days: 14

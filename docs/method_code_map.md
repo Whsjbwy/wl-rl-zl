@@ -156,3 +156,55 @@ verify_s1b_r1.py逐ID保留159项测试，组合完整父阶段、原子实验�
 build_review_bundle.py按最终Git blob导出，副本脱敏记录原SHA/包内SHA；verify_bundle.py
 使用标准库只读检查成员、CRC、哈希、文件可读性和源码blob，再解压到新目录，不运行包内代码。
 编排函数超60行是为连续列出证据链；数值、子进程、载荷、ZIP核验分别有独立模块与针对性测试。
+
+
+# S1-C 海流与独立 L1 物理核
+
+正式方案5.2—5.4/6.3/13与S1-C任务卡V1一致。本轮仅开阔水域，不实现地形边界流。
+R=Rz(psi)Ry(theta)Rx(phi)由体轴映射到NED；nu是对地速度的体轴表达。
+由Rdot=R S(omega)，(R.T)dot=-S(omega)R.T；对R.T c(p,t)用乘积法则，
+沿艇体位置用链式法则，得到 c_body_dot=-omega×c_body+R.T(partial_t c+J R nu_linear)。
+J[i,j]=∂c_i/∂p_j，单位1/s；固定空间点partial_t单位m/s²。空间项不是J c或J nu_relative。
+倾斜体轴接收完整三维流；p_dot=R nu_linear不额外加流速。
+
+| 协议/检查 | 实现 | 关键约定与证据 |
+|---|---|---|
+| 5.2/C03—C07 | currents.py、current_kinematics.py | 四类纯场；制造场purpose独立；Rodrigues轨迹中心差分 |
+| 5.1/C01—C02 | l1/parameters.py | 从冻结构造导出，质量按椭球公式复算，不取注释31.9kg |
+| 5.3/C08—C10/C13 | l1/rhs.py | 独立solve(MRB+MA,F-CRB(nu)nu-CA_red(nur)nur-Dnur-g+MA nudot_c) |
+| 5.4/C11—C12 | l1/actuators.py、adapter.py | 命令限幅、当前真实执行器算力、ZOH更新实际状态 |
+| 13/C14 | s1c_trajectories.py、s1c_checks.py | 三场景20s，三步长，共同时刻SO(3)姿态距离 |
+| 5.4/C15—C17 | l1/state.py、adapter.py | 完整七记忆/执行器/参考/场配置/参数/模型/dt/RNG；候选原子提交 |
+| 13/C18—C20 | verify_s1c.py、s1c_faults.py、s1c_bundle.py | 一次R1父验收、真实CLI坏数据、最终提交审核ZIP |
+
+F_applied仅为prop_fin+lift_drag+crossflow，未扣除C/D/g。CRB使用nu，CA_red与D使用nu_relative。
+CA保留源码删减(4,0),(0,4),(4,2),(2,4),(5,0),(0,5),(5,1),(1,5)，维持反对称配对；
+推进滚转力矩保留K_prop/10。沿用冻结升阻及横流纯函数和参数；不是调用旧dynamics再打补丁。
+模型忽略额外压力梯度、波浪、环境旋转流载荷，是协议工程假设，非真实海洋物理证明。
+
+控制器候选→限幅命令→t_k场和q_actual载荷→nu_next→eta_next=eta+dt J(eta)nu_next→
+执行器q_next=q_cmd+(q_actual-q_cmd)exp(-dt/T)→完整候选有限值/序列化校验→统一提交。
+尾舵/艉舵T=0.1s、±15度；螺旋桨T=1s、0—1525rpm；非法实际初态拒绝。
+这是整体一阶半隐式欧拉，只有ZOH执行器部分解析。cos(pitch)绝对值<1e-6明确拒绝。
+
+L0仍是原水平yaw海流近似、CRB按相对速度、直接加Dnu_c及执行器欧拉更新。
+无流连续RHS可严格比较；有流结构与新执行器积分不要求整段轨迹逐位一致。
+L1初始化z_d/psi_d同步参考，仅用于本轮合法小姿态诊断，不作为已完成配平证明。
+
+预登记：configs/s1c.json固定全部阈值、种子和动作。100组导数/右端位置范围
+N/E[-20,20]m、深度[10,70]m、欧拉角[-0.4,0.4]rad；u[0.5,2]m/s，v/w[-0.2,0.2]m/s，
+三轴角速度[-0.15,0.15]rad/s，实际舵[-0.15,0.15]rad、转速[100,1400]rpm，时间[0,60]s。
+100组恢复用三个场循环、种子20261011+组号，组号模11步热身，显式消费组号+1个RNG数。
+每组保存完整100步主/内存/JSON/分支及后续7个RNG值；不截取末态替代全序列。
+
+下一步集成契约：WorldMonitor现仅接受RemusSnapshot；未来需显式版本化组合L1Snapshot，
+保持候选物理步/几何查询/统一提交事务和真实碰撞末态语义。本轮不改原监控行为。
+数值/验收编排少数函数超过60行建议，保留连续公式或证据链，按职责分文件且有失败测试。
+
+
+C13的L0项级证据由scripts/s1c_legacy_diagnostics.py只读采集冻结dynamics返回点的局部数组，
+使用输入副本，并在finally恢复原trace钩子；不修改冻结源码，不供L1推进调用。
+同时保留独立的L0连续右端差商、L1全部力项及L1减L0逐项差，核对两种动量装配。
+参数导出另明确重心Ix/Iy/Iz（kg·m²）；原矩阵、控制增益和动力学数值均不变。
+C20每组cost.json保存热身、三次克隆、预测探针、四份100步序列逐步计时及完整配置。
+计时使用perf_counter，不消费RNG；原始秒数与p50/p95分别保留，不能反推出未测训练吞吐。

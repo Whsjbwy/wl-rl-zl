@@ -39,6 +39,18 @@ REQUIRED = {
 }
 
 
+S1C_REQUIRED = {
+    "source/auv_env/l1/adapter.py",
+    "source/auv_env/currents.py",
+    "source/scripts/verify_s1c.py",
+    "source/configs/s1c.json",
+    "reports/S1C_gate_report.json",
+    "reports/S1C_验收报告.md",
+    "reports/S1C_实施记录.md",
+    "source/docs/tasks/S1C_开阔水域海流与L1物理核.md",
+}
+
+
 def safe_path(name: str) -> str:
     """拒绝绝对/盘符/反斜线/点段/空段/ADS；按Windows大小写不敏感核对重复。"""
     if not name or "\\" in name or ":" in name or name.startswith("/"):
@@ -153,6 +165,12 @@ def verify(path: Path, *, extract: Path | None = None) -> dict[str, Any]:
             if sha != item["git_blob"]:
                 raise ValueError("源码与Git blob不符")
         revision = json_bytes(archive.read("git/revision.json"))
+        if revision.get("stage") == "S1-C":
+            if not S1C_REQUIRED.issubset(names):
+                raise ValueError("S1C必需源码/报告缺失")
+            for category in ("derivatives", "forces", "actuator", "snapshots", "trajectories"):
+                if not index.get(category) or any(n not in names for n in index[category]):
+                    raise ValueError("S1C完整原始证据索引缺失")
         if not re.fullmatch(r"[a-f0-9]{40}", revision["code_commit_sha"]):
             raise ValueError("提交SHA非法")
         if extract is not None:

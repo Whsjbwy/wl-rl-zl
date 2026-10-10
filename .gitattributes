@@ -24,3 +24,8 @@ configs/s1b.json text eol=lf
 configs/s1b_r1*.json text eol=lf
 docs/method_code_map.md text eol=lf
 docs/schemas/S1B_gate_report.schema.json text eol=lf
+
+configs/s1c*.json text eol=lf
+docs/tasks/S1C_* -text
+docs/reports/S1BR1_* -text
+docs/schemas/S1C*.json text eol=lf
