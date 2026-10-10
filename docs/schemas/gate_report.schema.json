@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["stage", "task_version", "protocol_version", "status", "target_repository", "source_commit", "tested_base_commit", "tested_content_sha256", "config_sha256", "working_tree_dirty", "execution_environment", "run_id", "commands", "checks", "artifacts", "thresholds", "unresolved_issues", "next_stage"],
+  "properties": {
+    "stage": {"const": "S0"},
+    "status": {"enum": ["PENDING", "PASS", "FAIL", "BLOCKED"]},
+    "target_repository": {"const": "Whsjbwy/wl-rl-zl"},
+    "source_commit": {"const": "c2dfbd4f4425d29bdcba98294563cda19890cdb1"},
+    "tested_base_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "tested_content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "config_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "working_tree_dirty": {"type": "boolean"},
+    "execution_environment": {"type": "object", "required": ["os", "python", "device"]},
+    "run_id": {"type": "string", "minLength": 1},
+    "commands": {"type": "array", "items": {"type": "object", "required": ["name", "argv", "exit_code", "duration_s", "stdout", "stderr"], "properties": {"exit_code": {"type": "integer"}, "argv": {"type": "array", "minItems": 1}, "duration_s": {"type": "number", "minimum": 0}}}},
+    "checks": {"type": "array", "items": {"type": "object", "required": ["name", "status", "details"], "properties": {"status": {"enum": ["PASS", "FAIL", "SKIP", "NOT_RUN"]}, "details": {"type": "object"}}}},
+    "artifacts": {"type": "array", "items": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}}},
+    "unresolved_issues": {"type": "array", "items": {"type": "string"}},
+    "next_stage": {"type": "object", "required": ["name", "authorized"], "properties": {"name": {"const": "S1"}, "authorized": {"const": false}}}
+  }
+}

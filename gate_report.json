@@ -1,0 +1,596 @@
+{
+  "stage": "S0",
+  "task_version": "1.0",
+  "protocol_version": "仓库审计版_V1",
+  "status": "PASS",
+  "target_repository": "Whsjbwy/wl-rl-zl",
+  "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1",
+  "tested_base_commit": "829a13135b79c31f60d9aa1383fee3ad785327bd",
+  "tested_content_sha256": "b939c5fe74300723a9b8dffabc0d1ec1b0bbe49446f66cd10754ac57cdf1023c",
+  "config_sha256": "3657a09126d99d0ce4f20228817974e44d6d5742c9983a1c2af3c18e0cdb924f",
+  "working_tree_dirty": true,
+  "execution_environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "executable": ".\\.venv\\Scripts\\python.exe",
+    "processor": "AMD Ryzen 5 9600X 6-Core Processor",
+    "device": "CPU",
+    "gpu_info": "NVIDIA GeForce RTX 5060, 596.21",
+    "gpu_validation": "NOT_RUN",
+    "dependencies": {
+      "attrs": "26.1.0",
+      "colorama": "0.4.6",
+      "contourpy": "1.4.0",
+      "cycler": "0.12.1",
+      "fonttools": "4.66.1",
+      "iniconfig": "2.3.1",
+      "jsonschema": "4.25.1",
+      "jsonschema-specifications": "2025.9.1",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "mypy": "1.18.2",
+      "mypy_extensions": "1.1.0",
+      "numpy": "2.5.3",
+      "packaging": "26.3",
+      "pathspec": "1.1.1",
+      "pillow": "12.3.0",
+      "pip": "25.0.1",
+      "pluggy": "1.6.0",
+      "Pygments": "2.21.0",
+      "pyparsing": "3.3.3",
+      "pytest": "9.1.1",
+      "python-dateutil": "2.9.0.post0",
+      "python_vehicle_simulator": "1.0.1",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.9.1",
+      "ruff": "0.13.3",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0"
+    }
+  },
+  "run_id": "20261010T064324Z-f99ea322",
+  "commands": [
+    {
+      "name": "ruff",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "scripts",
+        "tests"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 0.18295020000005024,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\ruff.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\ruff.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "format",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "scripts",
+        "tests"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 0.17895810000118217,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\format.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\format.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "types",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "scripts"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 0.7258459000004223,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\types.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\types.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "unit",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests",
+        "-q",
+        "--junitxml=.\\results\\s0\\20261010T064324Z-f99ea322\\unit.xml"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 4.583579699999973,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\unit.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\unit.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "module_probe",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import importlib; print(importlib.import_module('python_vehicle_simulator.vehicles.remus100').__file__)"
+      ],
+      "cwd": ".\\results\\s0\\20261010T064324Z-f99ea322\\baseline",
+      "exit_code": 0,
+      "duration_s": 0.9498612000024877,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\module_probe.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\module_probe.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "upstream",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "PythonVehicleSimulator/tests/test_propeller_advance_speed.py",
+        "PythonVehicleSimulator/tests/test_crossflow_drag.py",
+        "PythonVehicleSimulator/tests/test_simulate.py::test_remus100",
+        "-q",
+        "--junitxml=.\\results\\s0\\20261010T064324Z-f99ea322\\upstream.xml"
+      ],
+      "cwd": ".\\results\\s0\\20261010T064324Z-f99ea322\\baseline",
+      "exit_code": 0,
+      "duration_s": 2.888850499999535,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\upstream.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\upstream.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "regression",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "run_remus.py",
+        "--no-animation"
+      ],
+      "cwd": ".\\results\\s0\\20261010T064324Z-f99ea322\\baseline",
+      "exit_code": 0,
+      "duration_s": 2.7720957999990787,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\regression.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\regression.stderr.log",
+      "status": "PASS"
+    },
+    {
+      "name": "pip_check",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "cwd": ".",
+      "exit_code": 0,
+      "duration_s": 1.4626210999995237,
+      "timed_out": false,
+      "stdout": ".\\results\\s0\\20261010T064324Z-f99ea322\\pip_check.stdout.log",
+      "stderr": ".\\results\\s0\\20261010T064324Z-f99ea322\\pip_check.stderr.log",
+      "status": "PASS"
+    }
+  ],
+  "checks": [
+    {
+      "name": "environment",
+      "status": "PASS",
+      "details": {
+        "os": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+        "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD"
+      },
+      "duration_s": 0.5948099000015645
+    },
+    {
+      "name": "source",
+      "status": "PASS",
+      "details": {
+        "files_verified": 36,
+        "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1"
+      },
+      "duration_s": 0.09952499999781139
+    },
+    {
+      "name": "lock",
+      "status": "PASS",
+      "details": {
+        "colorama": "0.4.6",
+        "contourpy": "1.4.0",
+        "cycler": "0.12.1",
+        "fonttools": "4.66.1",
+        "iniconfig": "2.3.1",
+        "kiwisolver": "1.5.1",
+        "matplotlib": "3.11.2",
+        "numpy": "2.5.3",
+        "packaging": "26.3",
+        "pillow": "12.3.0",
+        "pluggy": "1.6.0",
+        "Pygments": "2.21.0",
+        "pyparsing": "3.3.3",
+        "pytest": "9.1.1",
+        "python-dateutil": "2.9.0.post0",
+        "six": "1.17.0",
+        "ruff": "0.13.3",
+        "mypy": "1.18.2",
+        "jsonschema": "4.25.1"
+      },
+      "duration_s": 0.03224970000155736
+    },
+    {
+      "name": "ruff",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "format",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "types",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "unit",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "unit_results",
+      "status": "PASS",
+      "details": {
+        "tests": 27
+      },
+      "duration_s": 0.0005032000008213799
+    },
+    {
+      "name": "import_path",
+      "status": "PASS",
+      "details": {
+        "module_path": ".\\results\\s0\\20261010T064324Z-f99ea322\\baseline\\PythonVehicleSimulator\\src\\python_vehicle_simulator\\vehicles\\remus100.py"
+      },
+      "duration_s": 0.00697779999973136
+    },
+    {
+      "name": "upstream",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "upstream_results",
+      "status": "PASS",
+      "details": {
+        "tests": 4
+      },
+      "duration_s": 0.00038750000021536835
+    },
+    {
+      "name": "regression",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "numerical",
+      "status": "PASS",
+      "details": {
+        "actual": {
+          "final_depth_m": 29.74975474011636,
+          "final_heading_deg": 49.998898184993784,
+          "path_length_m": 453.5508894768102
+        },
+        "difference": {
+          "final_depth_m": 4.740116359869262e-06,
+          "final_heading_deg": 1.815006214656023e-06,
+          "path_length_m": 5.231897830526577e-07
+        },
+        "samples": 10001,
+        "duration_s": 200.0,
+        "all_states_finite": true
+      },
+      "duration_s": 0.0762700000013865
+    },
+    {
+      "name": "pip_check",
+      "status": "PASS",
+      "details": {
+        "exit_code": 0
+      }
+    },
+    {
+      "name": "source_after",
+      "status": "PASS",
+      "details": {
+        "files_verified": 36,
+        "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1"
+      },
+      "duration_s": 0.10531260000061593
+    },
+    {
+      "name": "fingerprint_after",
+      "status": "PASS",
+      "details": {
+        "sha256": "b939c5fe74300723a9b8dffabc0d1ec1b0bbe49446f66cd10754ac57cdf1023c"
+      },
+      "duration_s": 0.010514599998714402
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/format.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/format.stdout.log",
+      "sha256": "0321fffcb91606a42c0a19d8c1121d5c544379d663821fce616c71a7bb62f6b5"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/module_probe.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/module_probe.stdout.log",
+      "sha256": "81d3d4bbca4dfeaea338abcb1d4297555ecfce75d4fa9a7ee3342fc6c2154f0f"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/pip_check.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/pip_check.stdout.log",
+      "sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/regression.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/regression.stdout.log",
+      "sha256": "ff35296eed0450c2f63635484acc2d61c7216e4e73658d2bf9d3ca1f8b231cfd"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/resolved_config.json",
+      "sha256": "29cfaf8b24d08b945f3581ee4928c0a75bf11396d76ae39cbe2ef4c364bf3ec6"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/ruff.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/ruff.stdout.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/tested_content.json",
+      "sha256": "cc4faa9e24776eaf3577abe2b9cd54a2f8238576c4f1854db17736da4f896e1c"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/types.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/types.stdout.log",
+      "sha256": "90377c8fd97127580c93ac5740d596c9ebc9db94dafa6560ee11fe16b4460c62"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/unit.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/unit.stdout.log",
+      "sha256": "f8ca172105e99993ff5b1ff27acf80f4d46d58552264d257c832b1696229c12f"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/unit.xml",
+      "sha256": "bbb9a909e575b5ff7ab56dcc80a7b5d652ea14ece62fe0bd11aeba437ba67a5a"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/upstream.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/upstream.stdout.log",
+      "sha256": "9d5a2646cfea101970d3c6e3eb8c2650770734a095b2562b4c25cf9f554c913c"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/upstream.xml",
+      "sha256": "ca0bfb05a886edf2e6040132d8f95175f92f51b0950116c8f6644f57d8cd85e4"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/baseline/results/remus100/controls.png",
+      "sha256": "afc21170ebe394ba7664ed2337c0fa35a513afedc08f9ef9eb681b023470a1f6"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/baseline/results/remus100/simulation.csv",
+      "sha256": "fafc07d267afc5be7075e0a6a571c7b80963578f59cad2ab3c1bb1c9dfb498ba"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/baseline/results/remus100/states.png",
+      "sha256": "96cc9e3001ffabf758ef1886145176aefc58e37d47edcf8b62a5202709f28ddc"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/baseline/results/remus100/summary.json",
+      "sha256": "324e8e2632db528d9b9fe4460e1ebc300a88c3b7e3cd7fc5635dfb2fe72a0562"
+    },
+    {
+      "path": "results/s0/20261010T064324Z-f99ea322/baseline/results/remus100/trajectory.png",
+      "sha256": "17ed0c919574cca06fe54027d302878007a13955839f7928a503fc7bdfca1fcf"
+    }
+  ],
+  "thresholds": {
+    "duration_s": 200.0,
+    "dt_s": 0.02,
+    "samples": 10001,
+    "parameters": {
+      "duration": 200,
+      "depth": 30,
+      "heading": 50,
+      "rpm": 1525,
+      "current": 0.5,
+      "current_direction": 170,
+      "no_animation": true
+    },
+    "reference": {
+      "final_depth_m": 29.74975,
+      "final_heading_deg": 49.9989,
+      "path_length_m": 453.55089
+    },
+    "tolerance": {
+      "final_depth_m": 0.001,
+      "final_heading_deg": 0.001,
+      "path_length_m": 0.01
+    },
+    "time_tolerance_s": 1e-09,
+    "summary_tolerance": 1e-08,
+    "timeout_s": 300,
+    "expected_upstream_tests": 4,
+    "seed": null
+  },
+  "unresolved_issues": [],
+  "windows_validation": "PASS",
+  "remote_sync": {
+    "status": "PENDING",
+    "ci_status": "NOT_RUN"
+  },
+  "next_stage": {
+    "name": "S1",
+    "authorized": false
+  },
+  "published_evidence": [
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/format.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/format.stdout.log",
+      "sha256": "9fa2e30088122b883ebbf1c300359d4a0c9d09c988b20631e8625a40425a9723",
+      "raw_sha256": "0321fffcb91606a42c0a19d8c1121d5c544379d663821fce616c71a7bb62f6b5"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/module_probe.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/module_probe.stdout.log",
+      "sha256": "304014d2fcbd29945e2a78c1112e03971bc30ca86bf86b87af270387bfe3d095",
+      "raw_sha256": "81d3d4bbca4dfeaea338abcb1d4297555ecfce75d4fa9a7ee3342fc6c2154f0f"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/pip_check.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/pip_check.stdout.log",
+      "sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+      "raw_sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/regression.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/regression.stdout.log",
+      "sha256": "f3506a26ec0e46b2e1cf658fd1f28bd58ed931e8fcf3ffcd2a037fb5e66c37f5",
+      "raw_sha256": "ff35296eed0450c2f63635484acc2d61c7216e4e73658d2bf9d3ca1f8b231cfd"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/ruff.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/ruff.stdout.log",
+      "sha256": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+      "raw_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/types.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/types.stdout.log",
+      "sha256": "90377c8fd97127580c93ac5740d596c9ebc9db94dafa6560ee11fe16b4460c62",
+      "raw_sha256": "90377c8fd97127580c93ac5740d596c9ebc9db94dafa6560ee11fe16b4460c62"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/unit.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/unit.stdout.log",
+      "sha256": "f8ca172105e99993ff5b1ff27acf80f4d46d58552264d257c832b1696229c12f",
+      "raw_sha256": "f8ca172105e99993ff5b1ff27acf80f4d46d58552264d257c832b1696229c12f"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/upstream.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/upstream.stdout.log",
+      "sha256": "9d5a2646cfea101970d3c6e3eb8c2650770734a095b2562b4c25cf9f554c913c",
+      "raw_sha256": "9d5a2646cfea101970d3c6e3eb8c2650770734a095b2562b4c25cf9f554c913c"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/unit.xml",
+      "sha256": "62a858e5ddaa023ec5b2194f98b14ce213c43dc7dc52dfa7e45a58d5e1fa0fa7",
+      "raw_sha256": "bbb9a909e575b5ff7ab56dcc80a7b5d652ea14ece62fe0bd11aeba437ba67a5a"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/upstream.xml",
+      "sha256": "835614711375cba701500a0cb15da8f89f0809c9424e6ff6a32892435d690693",
+      "raw_sha256": "ca0bfb05a886edf2e6040132d8f95175f92f51b0950116c8f6644f57d8cd85e4"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/tested_content.json",
+      "sha256": "cc4faa9e24776eaf3577abe2b9cd54a2f8238576c4f1854db17736da4f896e1c",
+      "raw_sha256": "cc4faa9e24776eaf3577abe2b9cd54a2f8238576c4f1854db17736da4f896e1c"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/resolved_config.json",
+      "sha256": "29cfaf8b24d08b945f3581ee4928c0a75bf11396d76ae39cbe2ef4c364bf3ec6",
+      "raw_sha256": "29cfaf8b24d08b945f3581ee4928c0a75bf11396d76ae39cbe2ef4c364bf3ec6"
+    },
+    {
+      "path": "docs/reports/evidence/20261010T064324Z-f99ea322/summary.json",
+      "sha256": "324e8e2632db528d9b9fe4460e1ebc300a88c3b7e3cd7fc5635dfb2fe72a0562",
+      "raw_sha256": "324e8e2632db528d9b9fe4460e1ebc300a88c3b7e3cd7fc5635dfb2fe72a0562"
+    }
+  ]
+}
