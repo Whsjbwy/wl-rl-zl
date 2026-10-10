@@ -1,6 +1,7 @@
 """S1-B统一验收；失败非零退出，真实结果和历史报告分开保存。"""
 
 import argparse
+import json
 import logging
 import os
 import subprocess
@@ -126,7 +127,7 @@ def validate_report(report: dict[str, Any], root: Path, *, numerical: bool = Tru
         if numerical:
             actual = inspect_results(run / "experiments")
             details = next(c["details"] for c in report["checks"] if c["name"] == "numerical")
-            if details != actual:
+            if json.dumps(details, sort_keys=True) != json.dumps(actual, sort_keys=True):
                 raise ValueError("gate_report数值details与原始复算不一致")
         # 先拒绝本阶段坏输入再复算父阶段；所有正向检查保留，不反复浪费故障用例成本。
         parent = read_json(run / "s1a/gate_report.json")

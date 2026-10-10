@@ -29,6 +29,7 @@ FAULTS = (
     "endpoint_label",
     "duplicate_example",
     "report_summary",
+    "report_summary_bool",
     "missing_file",
     "missing_test",
     "invalid_json",
@@ -70,7 +71,7 @@ def mutate(name: str, metrics: dict[str, Any], report: dict[str, Any]) -> None:
 
 
 def execute(root: Path, source_run: Path, output: Path) -> dict[str, Any]:
-    """先正向CLI复核，再21类篡改；保留输入副本、退出码、stdout/stderr，不覆盖原run。"""
+    """先正向CLI复核，再逐类篡改；保留输入副本、退出码、stdout/stderr，不覆盖原run。"""
     output.mkdir(parents=True, exist_ok=False)
     original = read_json(source_run / "gate_report.json")
     env = os.environ.copy()
@@ -150,6 +151,8 @@ def execute(root: Path, source_run: Path, output: Path) -> dict[str, Any]:
             details["details"] = copy.deepcopy(metrics)
             if fault == "report_summary":
                 details["details"]["status_counts"]["CLEAR"] += 1
+            elif fault == "report_summary_bool":
+                details["details"]["neutral"]["max_abs"] = False
             for item in report["artifacts"]:
                 if (root / item["path"]).is_file():
                     item["sha256"] = digest(root / item["path"])

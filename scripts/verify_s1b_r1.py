@@ -2,6 +2,7 @@
 
 import argparse
 import importlib
+import json
 import logging
 import os
 import subprocess
@@ -18,7 +19,7 @@ from scripts.s0_checks import digest
 from scripts.s0_process import create_run, run_command
 from scripts.s1b_checks import fingerprint
 from scripts.s1b_r1_faults import FAULTS
-from scripts.strict_json import finite_tree, read_json, write_json
+from scripts.strict_json import finite_tree, number, read_json, write_json
 from scripts.verify_s0 import environment_metadata
 from scripts.verify_s1b import HISTORY
 from scripts.verify_s1b import validate_report as validate_baseline
@@ -117,6 +118,9 @@ def validate_report(report: dict[str, Any], root: Path) -> None:
         if not path.is_relative_to(root.resolve()) or digest(path) != row["sha256"]:
             raise ValueError("R1产物哈希/路径非法")
     if report["status"] == "PASS":
+        for command in report["commands"]:
+            number(command["exit_code"], minimum=0, integer=True)
+            number(command["duration_s"], minimum=0)
         if (
             report["unresolved_issues"]
             or any(r["exit_code"] != 0 for r in report["commands"])
@@ -126,7 +130,9 @@ def validate_report(report: dict[str, Any], root: Path) -> None:
         run = root / report["run_directory"]
         actual = {"tests": required_tests(root, run), "raw_evidence": raw_evidence(root, run)}
         for row in report["checks"]:
-            if row["name"] in actual and row["details"] != actual[row["name"]]:
+            if row["name"] in actual and json.dumps(row["details"], sort_keys=True) != json.dumps(
+                actual[row["name"]], sort_keys=True
+            ):
                 raise ValueError("R1报告摘要不符")
 
 
