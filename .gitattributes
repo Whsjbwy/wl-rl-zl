@@ -10,3 +10,6 @@ docs/reports/evidence/** -text whitespace=blank-at-eol,blank-at-eof,space-before
 *.py text eol=lf
 PythonVehicleSimulator/**/*.py -text
 run_remus.py -text
+
+# 用户任务卡按附件字节保留；Markdown 两个行尾空格为原有硬换行。
+docs/tasks/S1A_* -text whitespace=-blank-at-eol

@@ -10,11 +10,11 @@
 
 ## 当前范围
 
-只实施 S0：冻结迁入、来源校验、完整默认回归、验收脚本自检与 CI 配置。
+S0 已迁入冻结基线；当前仅实施获授权的 S1-A：单步适配、完整快照与逐步回归。
 当前真实结果见 [S0 验收报告](docs/reports/S0_验收报告.md) 和 [gate_report.json](gate_report.json)。
 `examples/` 的图片和 summary 是来源演示产物，不能当成本次实测。
 `docs/governance/` 是任务包的历史制作核对记录，其中的通过和权限状态不是本次运行状态。
-未实现强化学习、蒸馏、地形、碰撞、C1/C2/C3；不会自动进入 S1。
+未实现强化学习、蒸馏、地形、碰撞、C1/C2/C3；S1-A 通过不代表整个 S1 已验收。
 
 ## 安装与完整验收
 
@@ -49,14 +49,43 @@ $env:PYTHONUTF8 = '1'
 `requirements-lock.txt` 原样保留。第一方开发工具单列于 `requirements-dev.txt`：
 Ruff 0.13.3（MIT，规则与格式）、mypy 1.18.2（MIT，接口类型）、
 jsonschema 4.25.1（MIT，阶段报告结构）。实际传递依赖版本在报告记录。
-规则仅应用于 `scripts/` 和 `tests/`，不格式化冻结上游。
+规则应用于 `auv_env/`、`scripts/` 和 `tests/`，不格式化冻结上游。
 
 ```powershell
-.\.venv\Scripts\python.exe -m ruff check scripts tests
-.\.venv\Scripts\python.exe -m ruff format --check scripts tests
-.\.venv\Scripts\python.exe -m mypy scripts
+.\.venv\Scripts\python.exe -m ruff check auv_env scripts tests
+.\.venv\Scripts\python.exe -m ruff format --check auv_env scripts tests
+.\.venv\Scripts\python.exe -m mypy auv_env scripts
 .\.venv\Scripts\python.exe -m pytest tests -q
 ```
 
-`.github/workflows/quality.yml` 配置 Windows/Python 3.12 的完整 S0 检查，
+`.github/workflows/quality.yml` 配置 Windows/Python 3.12 的 S1-A 和嵌套完整 S0 检查，
 任务分支推送或 PR 触发，只读权限并归档失败证据。配置存在不等于 CI 已通过，实际状态以 GitHub 运行为准。
+
+## S1-A 单步、快照与完整验收
+
+公共接口为 `auv_env.RemusAdapter`、`RemusConfig`、`ControlReference`；
+`step()` 推进一个 0.02 秒物理步，`get_state()` 返回独立快照，
+`set_state()` 原子恢复完整状态，`clone()` 建立互不污染的分支。
+坐标采用 NED，位置为米、速度为米/秒、角度为弧度、转速为 rpm。
+积分和原日志对齐见 [方法与代码映射](docs/method_code_map.md)。
+快照包含执行器、七个控制器内部状态、控制参考、步数、配置标识及 PCG64 状态。
+读取快照和离线绘图均不推进仿真。
+
+```powershell
+$env:PYTHONUTF8 = '1'
+.\.venv\Scripts\python.exe scripts/verify_s1a.py --source ../s0-source
+```
+
+该命令在唯一 `results/s1a/<run_id>/` 执行五种 200 秒逐步对照、
+100 组各 100 步内存/JSON 恢复、分支隔离、五种重置、失败传播测试及原 S0 完整回归。
+阈值先登记在 `configs/s1a.json`；任何必需检查失败即返回非零。
+原始 CSV、完整状态 JSONL、日志和哈希留在该目录，S0 历史报告不覆盖。
+
+```powershell
+.\.venv\Scripts\python.exe scripts/publish_s1a.py --run results/s1a/<run_id> --source ../s0-source
+.\.venv\Scripts\python.exe scripts/verify_s1a.py --check-report results/s1a/<run_id>/gate_report.json
+```
+
+本次实测见 [S1-A 中文报告](docs/reports/S1A_验收报告.md) 和
+[结构化报告](docs/reports/S1A_gate_report.json)。演示图由本次快照恢复序列生成，
+不使用旧 README 图或旧仿真数据。整个 S1 尚未验收，后续工作须单独授权。

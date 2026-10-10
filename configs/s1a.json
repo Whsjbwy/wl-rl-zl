@@ -1,0 +1,26 @@
+{
+  "task_version": "1.0",
+  "dt_s": 0.02,
+  "duration_s": 200.0,
+  "n_steps": 10000,
+  "atol": 1e-10,
+  "rtol": 1e-10,
+  "time_atol_s": 1e-9,
+  "replay_atol": 1e-10,
+  "snapshot_groups": 100,
+  "replay_steps": 100,
+  "seed": 20261010,
+  "timeout_s": 300,
+  "cases": [
+    {"name": "default", "current_mps": 0.5, "current_direction_deg": 170.0, "vary_reference": false},
+    {"name": "no_current", "current_mps": 0.0, "current_direction_deg": 0.0, "vary_reference": false},
+    {"name": "east_current", "current_mps": 0.5, "current_direction_deg": 90.0, "vary_reference": false},
+    {"name": "west_current", "current_mps": 0.5, "current_direction_deg": 270.0, "vary_reference": false},
+    {"name": "vary_reference", "current_mps": 0.5, "current_direction_deg": 170.0, "vary_reference": true}
+  ],
+  "reference_schedule": [
+    {"start_step": 0, "depth_m": 30.0, "heading_deg": 50.0, "propeller_rpm": 1525.0},
+    {"start_step": 2500, "depth_m": 20.0, "heading_deg": -20.0, "propeller_rpm": 1300.0},
+    {"start_step": 6000, "depth_m": 35.0, "heading_deg": 100.0, "propeller_rpm": 1450.0}
+  ]
+}
