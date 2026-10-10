@@ -120,7 +120,11 @@ def test_bundle_source_from_commit(tmp_path: Path) -> None:
 
     git("init")
     (tmp_path / "AGENTS.md").write_bytes(b"committed\n")
-    git("add", "AGENTS.md")
+    historical = tmp_path / "docs/reports/old.xml"
+    historical.parent.mkdir(parents=True)
+    original_xml = b'<testsuite hostname="<host>" tests="159"/>'
+    historical.write_bytes(original_xml)
+    git("add", "AGENTS.md", "docs/reports/old.xml")
     git(
         "-c",
         "user.name=Fixture",
@@ -133,7 +137,10 @@ def test_bundle_source_from_commit(tmp_path: Path) -> None:
     (tmp_path / "AGENTS.md").write_bytes(b"uncommitted\n")
     payload = Payload({})
     rows = export_commit(payload, tmp_path, git("rev-parse", "HEAD").decode().strip())
-    assert payload.data["source/AGENTS.md"] == b"committed\n" and len(rows) == 1
+    assert payload.data["source/AGENTS.md"] == b"committed\n" and len(rows) == 2
+    assert payload.data["reports/old.xml.original.txt"] == original_xml
+    view = ElementTree.fromstring(payload.data["evidence/historical_xml/old.xml"])
+    assert view.attrib == {"hostname": "<host>", "tests": "159"}
     assert not any(".git/" in p for p in payload.data)
     # 顶层打包入口必须拒绝脏工作区，不以导出能力掩盖未测内容。
     with pytest.raises(ValueError, match="不干净"):

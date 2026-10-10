@@ -7,6 +7,7 @@ import subprocess
 import zipfile
 from pathlib import Path
 from typing import Any
+from xml.etree import ElementTree
 
 from scripts.verify_bundle import safe_path
 
@@ -122,6 +123,7 @@ def git(root: Path, *arguments: str) -> bytes:
 def export_commit(payload: Payload, root: Path, commit: str) -> list[dict[str, Any]]:
     """从Git对象读取精确源码，不使用工作区文件，不复制.git或未提交代码。"""
     records = []
+    historical_xml = []
     for entry in git(root, "ls-tree", "-r", "-z", commit).split(b"\0"):
         if not entry:
             continue
@@ -136,6 +138,24 @@ def export_commit(payload: Payload, root: Path, commit: str) -> list[dict[str, A
             else "source/" + name
         )
         data = git(root, "cat-file", "blob", blob)
+        if name.startswith("docs/reports/") and name.endswith(".xml"):
+            try:
+                ElementTree.fromstring(data)
+            except ElementTree.ParseError:
+                # 只兼容已确认的旧hostname占位符；原Git字节另存文本，绝不覆盖历史证据。
+                repaired = data.replace(b'hostname="<host>"', b'hostname="&lt;host&gt;"')
+                ElementTree.fromstring(repaired)
+                target += ".original.txt"
+                view = "evidence/historical_xml/" + name.removeprefix("docs/reports/")
+                payload.add(view, repaired, "historical_xml_view", name, commit)
+                payload.records[-1].update(
+                    original_sha256=sha(data),
+                    redacted=True,
+                    redaction_rules=["仅将旧hostname属性内<host>转义为XML实体"],
+                )
+                historical_xml.append(
+                    {"repository_path": name, "original": target, "readable_copy": view}
+                )
         payload.add(target, data, "committed_source", name, commit)
         records.append(
             {
@@ -146,4 +166,5 @@ def export_commit(payload: Payload, root: Path, commit: str) -> list[dict[str, A
                 "bytes": len(data),
             }
         )
+    payload.json("packager/historical_xml.json", historical_xml)
     return records

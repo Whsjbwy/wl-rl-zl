@@ -4,6 +4,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+from xml.etree import ElementTree
 
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -34,9 +35,11 @@ def publish(root: Path, run: Path, source: Path) -> None:
     evidence = []
     for path in paths:
         target = folder / path.relative_to(run).as_posix().replace("/", "__")
-        target.write_text(
-            redact(path.read_text(encoding="utf-8"), root, source), encoding="utf-8", newline="\n"
-        )
+        text = redact(path.read_text(encoding="utf-8"), root, source)
+        if path.suffix == ".xml":
+            text = text.replace('hostname="<host>"', 'hostname="&lt;host&gt;"')
+            ElementTree.fromstring(text)
+        target.write_text(text, encoding="utf-8", newline="\n")
         evidence.append(
             {
                 "path": target.relative_to(root).as_posix(),

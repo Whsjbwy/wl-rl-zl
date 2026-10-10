@@ -42,3 +42,12 @@ docs/method_code_map.md、S0/S1-A/S1-B中文及JSON报告、来源36文件清单
 ZIP从最终提交和指定run_id产生；原始证据只读，打包副本脱敏，逐文件记录来源和原/包内哈希。
 最终提交/CI回执与ZIP SHA作为外部交付元数据，避免提交自引用；不自动合并PR。
 父阶段S1与外部复审均PENDING，交付后停止。
+
+## 最终打包兼容性复核
+
+从最终Git对象逐个读取的预检发现，早期发布器把JUnit的hostname属性脱敏成裸`<host>`，
+导致已提交的历史XML无法解析（包括之前R1中间发布副本）。历史文件原字节不改。
+生成器将这些原Git blob存为`.xml.original.txt`，另在evidence/historical_xml提供只转义该属性的可读副本；
+packager/historical_xml.json记录路径映射，manifest记录原/转换后SHA。其余XML错误仍直接拒绝。
+新R1发布器先转义属性再实际解析；针对历史Git字节保留及XML可读性的测试已经执行。
+此前最终候选1edf3ba不是最后交付版；上述打包修复重新跑完整验收并追加正常提交，不重写历史。
