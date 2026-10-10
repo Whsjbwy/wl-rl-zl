@@ -1,0 +1,23 @@
+{
+  "cases": [
+    {
+      "error": "ValueError",
+      "unchanged": true,
+      "retry_equal": true,
+      "branch_unchanged": true
+    },
+    {
+      "error": "FloatingPointError",
+      "unchanged": true,
+      "retry_equal": true,
+      "branch_unchanged": true
+    },
+    {
+      "error": "RuntimeError",
+      "unchanged": true,
+      "retry_equal": true,
+      "branch_unchanged": true
+    }
+  ],
+  "status": "PASS"
+}

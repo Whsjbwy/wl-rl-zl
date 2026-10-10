@@ -1,0 +1,530 @@
+{
+  "positive": {
+    "name": "positive",
+    "argv": [
+      ".\\.venv\\Scripts\\python.exe",
+      "scripts/verify_s1b.py",
+      "--check-report",
+      ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\s1b\\gate_report.json"
+    ],
+    "cwd": ".",
+    "exit_code": 0,
+    "duration_s": 10.195600300001388,
+    "timed_out": false,
+    "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\positive.stdout.log",
+    "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\positive.stderr.log",
+    "status": "PASS"
+  },
+  "cases": [
+    {
+      "name": "nan_gradient",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 1.0123041000006197,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\nan_gradient\\nan_gradient.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\nan_gradient\\nan_gradient.stderr.log",
+      "status": "FAIL",
+      "fault": "nan_gradient",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "negative_gradient",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.605173600000853,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\negative_gradient\\negative_gradient.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\negative_gradient\\negative_gradient.stderr.log",
+      "status": "FAIL",
+      "fault": "negative_gradient",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "wrong_analytic_values",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.6353061000008893,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_analytic_values\\wrong_analytic_values.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_analytic_values\\wrong_analytic_values.stderr.log",
+      "status": "FAIL",
+      "fault": "wrong_analytic_values",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "wrong_counts",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 5.246568599999591,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_counts\\wrong_counts.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_counts\\wrong_counts.stderr.log",
+      "status": "FAIL",
+      "fault": "wrong_counts",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "bool_counts",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.7543667999998434,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\bool_counts\\bool_counts.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\bool_counts\\bool_counts.stderr.log",
+      "status": "FAIL",
+      "fault": "bool_counts",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "wrong_ratio",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 5.391193999999814,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_ratio\\wrong_ratio.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_ratio\\wrong_ratio.stderr.log",
+      "status": "FAIL",
+      "fault": "wrong_ratio",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "range_ratio",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.769065299999056,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\range_ratio\\range_ratio.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\range_ratio\\range_ratio.stderr.log",
+      "status": "FAIL",
+      "fault": "range_ratio",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "wrong_mean_subdivisions",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 5.300490100002207,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_mean_subdivisions\\wrong_mean_subdivisions.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_mean_subdivisions\\wrong_mean_subdivisions.stderr.log",
+      "status": "FAIL",
+      "fault": "wrong_mean_subdivisions",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "wrong_labels",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 3.529206200000772,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_labels\\wrong_labels.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_labels\\wrong_labels.stderr.log",
+      "status": "FAIL",
+      "fault": "wrong_labels",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "wrong_subdivisions",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 3.5389716000026965,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_subdivisions\\wrong_subdivisions.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\wrong_subdivisions\\wrong_subdivisions.stderr.log",
+      "status": "FAIL",
+      "fault": "wrong_subdivisions",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "duplicate_diagnostic",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.625573000001168,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\duplicate_diagnostic\\duplicate_diagnostic.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\duplicate_diagnostic\\duplicate_diagnostic.stderr.log",
+      "status": "FAIL",
+      "fault": "duplicate_diagnostic",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "endpoint_label",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.7119141000002855,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\endpoint_label\\endpoint_label.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\endpoint_label\\endpoint_label.stderr.log",
+      "status": "FAIL",
+      "fault": "endpoint_label",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "duplicate_example",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.7810141000009025,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\duplicate_example\\duplicate_example.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\duplicate_example\\duplicate_example.stderr.log",
+      "status": "FAIL",
+      "fault": "duplicate_example",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "report_summary",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 5.395155700000032,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\report_summary\\report_summary.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\report_summary\\report_summary.stderr.log",
+      "status": "FAIL",
+      "fault": "report_summary",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "missing_file",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 1.066046700001607,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\missing_file\\missing_file.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\missing_file\\missing_file.stderr.log",
+      "status": "FAIL",
+      "fault": "missing_file",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json",
+        "figures/hills.png"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "missing_test",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.5875981000026513,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\missing_test\\missing_test.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\missing_test\\missing_test.stderr.log",
+      "status": "FAIL",
+      "fault": "missing_test",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json",
+        "s1a/unit.xml"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "invalid_json",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.5628606999998738,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\invalid_json\\invalid_json.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\invalid_json\\invalid_json.stderr.log",
+      "status": "FAIL",
+      "fault": "invalid_json",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "nonzero",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.5694354999977804,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\nonzero\\nonzero.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\nonzero\\nonzero.stderr.log",
+      "status": "FAIL",
+      "fault": "nonzero",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "timeout",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 2.574671700000181,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\timeout\\timeout.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\timeout\\timeout.stderr.log",
+      "status": "FAIL",
+      "fault": "timeout",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "negative_timing",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 5.270331600000645,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\negative_timing\\negative_timing.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\negative_timing\\negative_timing.stderr.log",
+      "status": "FAIL",
+      "fault": "negative_timing",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json",
+        "experiments/timings.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    },
+    {
+      "name": "infinite_timing",
+      "argv": [
+        ".\\.venv\\Scripts\\python.exe",
+        "scripts/verify_s1b.py",
+        "--check-report",
+        ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\fault-copy-pvvcki0b\\gate_report.json"
+      ],
+      "cwd": ".",
+      "exit_code": 1,
+      "duration_s": 5.426378600001044,
+      "timed_out": false,
+      "stdout": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\infinite_timing\\infinite_timing.stdout.log",
+      "stderr": ".\\results\\s1b_r1\\20261010T102607Z-538c4001\\fault_injection\\infinite_timing\\infinite_timing.stderr.log",
+      "status": "FAIL",
+      "fault": "infinite_timing",
+      "changed": [
+        "experiments/counterexamples.json",
+        "experiments/metrics.json",
+        "experiments/timings.json"
+      ],
+      "artifact_hashes_updated": true,
+      "fixture_kind": "fault_injection",
+      "source_run_id": "s1b"
+    }
+  ],
+  "count": 21,
+  "all_rejected": true
+}
