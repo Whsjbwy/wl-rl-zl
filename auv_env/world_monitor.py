@@ -2,12 +2,14 @@
 
 import copy
 import json
+import logging
 from dataclasses import asdict, dataclass
 from typing import Any
 
 from auv_env import ControlReference, RemusAdapter, RemusSnapshot
 from auv_env.collision import query_pose
 from auv_env.geometry import Pose
+from auv_env.monitor_validation import validate_sweep
 from auv_env.scene import Scene
 from auv_env.swept import INTERPOLATION_VERSION, SweepResult, query_sweep
 
@@ -161,22 +163,50 @@ class WorldMonitor:
         return "domain_boundary" if result.query.reason == "domain_boundary" else "collision"
 
     def step(self, reference: ControlReference) -> tuple[MonitorSnapshot, SweepResult]:
-        """真实推进一物理步再监控，返回完整状态和扫掠；终止后抛RuntimeError且不推进。"""
+        """候选物理步与几何有效后统一提交；异常原样传播且全状态不变，事件保留真步末。"""
         if self._terminated:
             raise RuntimeError("监控已终止，须reset或恢复后才能推进")
         before = self._adapter.get_state()
-        after = self._adapter.step(reference).state
-        result = query_sweep(self.scene, Pose.from_eta(before.eta), Pose.from_eta(after.eta), 0.02)
-        if result.query.status != "CLEAR":
-            self._terminated, self._reason = True, self._termination(result)
-            self._event = {
-                "before": before.to_json(),
-                "after": after.to_json(),
-                "sweep": asdict(result),
-            }
-        else:
-            self._last_certified = after
-        return self.get_state(), result
+        candidate = self._adapter.clone()
+        try:
+            after = candidate.step(reference).state
+            result = validate_sweep(
+                query_sweep(self.scene, Pose.from_eta(before.eta), Pose.from_eta(after.eta), 0.02),
+                self.scene,
+            )
+            terminated = result.query.status != "CLEAR"
+            reason = self._termination(result) if terminated else None
+            event = (
+                {"before": before.to_json(), "after": after.to_json(), "sweep": asdict(result)}
+                if terminated
+                else None
+            )
+            last = self._last_certified if terminated else after
+            # 返回对象也在提交前构造/序列化；内部与外部不能共享可变数组/事件。
+            snapshot = MonitorSnapshot.from_json(
+                MonitorSnapshot(
+                    after,
+                    last,
+                    self.scene.scene_hash,
+                    asdict(self.scene.policy),
+                    terminated,
+                    reason,
+                    event,
+                ).to_json()
+            )
+            committed_last = copy.deepcopy(last)
+        except Exception:
+            logging.getLogger(__name__).exception(
+                "监控候选步未提交；scene=%s before=%s candidate=%s",
+                self.scene.scene_hash,
+                before.to_json(),
+                candidate.get_state().to_json(),
+            )
+            raise
+        self._adapter = candidate
+        self._last_certified = committed_last
+        self._terminated, self._reason, self._event = terminated, reason, event
+        return snapshot, result
 
     def reset(self, **initial: Any) -> MonitorSnapshot:
         """以原适配器reset参数重置；先验证完整候选，非法初态不修改现有监控。"""
