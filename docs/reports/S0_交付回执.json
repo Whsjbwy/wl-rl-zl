@@ -1,0 +1,28 @@
+{
+  "stage": "S0",
+  "verified_at_utc": "2026-10-10 07:10:43 UTC",
+  "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1",
+  "delivery_commit": "6ebb95e885201df3c48452f1269cb813365b2547",
+  "pr_url": "https://github.com/Whsjbwy/wl-rl-zl/pull/1",
+  "merged": true,
+  "merged_at": "2026-10-10T07:08:49Z",
+  "merge_commit": "fff2f2f7aba3c4251b5684090417f1d680b23201",
+  "s1a_base_sha": "fff2f2f7aba3c4251b5684090417f1d680b23201",
+  "checks": [
+    {
+      "name": "Windows Python 3.12 - full 200s S0",
+      "head_sha": "6ebb95e885201df3c48452f1269cb813365b2547",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Whsjbwy/wl-rl-zl/actions/runs/38032182614/job/114155257248"
+    },
+    {
+      "name": "Windows Python 3.12 - full 200s S0",
+      "head_sha": "6ebb95e885201df3c48452f1269cb813365b2547",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Whsjbwy/wl-rl-zl/actions/runs/38032161402/job/114155190939"
+    }
+  ],
+  "verification_scope": "GitHub PR 合并状态和指定 head 的 CI；本地 main 与 S0 提交树无差异。原 S0 报告及测试事实原样保留。"
+}
