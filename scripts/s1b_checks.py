@@ -12,12 +12,15 @@ from xml.etree import ElementTree
 import numpy as np
 
 from auv_env import RemusAdapter
+from auv_env.collision import query_pose
 from auv_env.geometry import Pose
 from auv_env.scene import Scene, generate_scene
 from auv_env.swept import query_sweep
 from auv_env.world_monitor import MonitorSnapshot, WorldMonitor
-from scripts.s0_checks import digest, read_json
+from scripts.s0_checks import digest
 from scripts.s1a_checks import compare_jsonl
+from scripts.s1b_semantics import check_analytic, check_numbers, check_statistics
+from scripts.strict_json import loads, number, read_json
 from scripts.verify_s1a import check_tests
 
 
@@ -56,7 +59,14 @@ def fingerprint(root: Path) -> dict[str, Any]:
 def imports(root: Path) -> dict[str, str]:
     """记录实际新增模块导入位置，拒绝editable指向其他工作区。"""
     result = {}
-    for name in ("terrain", "geometry", "scene", "collision", "swept", "world_monitor"):
+    for name in (
+        "terrain",
+        "geometry",
+        "scene",
+        "collision",
+        "swept",
+        "world_monitor",
+    ):
         path = Path(str(importlib.import_module(f"auv_env.{name}").__file__)).resolve()
         if path != (root / f"auv_env/{name}.py").resolve():
             raise ValueError("导入路径不符")
@@ -93,6 +103,8 @@ def inspect_results(folder: Path) -> dict[str, Any]:
     }
     if set(metrics) != required:
         raise ValueError("实验JSON不完整")
+    check_numbers(metrics)
+    check_analytic(metrics["analytic"])
     analytic = metrics["analytic"]
     errors = []
     for row in analytic["distances"]:
@@ -115,17 +127,32 @@ def inspect_results(folder: Path) -> dict[str, Any]:
         "negative_bound": "UNCERTAIN",
         "terrain_witness": "COLLISION",
     }
-    if examples != metrics["counterexamples"] or {r["name"] for r in examples} != set(labels):
+    if (
+        examples != metrics["counterexamples"]
+        or {r["name"] for r in examples} != set(labels)
+        or len(examples) != len(labels)
+    ):
         raise ValueError("反例原始数据/摘要不符")
+    queries = []
     for row in examples:
         scene = Scene.from_json(json.dumps(row["scene"]))
         result = query_sweep(scene, Pose(**row["start"]), Pose(**row["end"]))
+        endpoints_clear = all(
+            query_pose(scene, Pose(**row[key])).status == "CLEAR" for key in ("start", "end")
+        )
         if (
             result.query.status != labels[row["name"]]
             or json.loads(json.dumps(asdict(result))) != row["actual"]
+            or row["expected"] != labels[row["name"]]
+            or type(row["endpoint_only_clear"]) is not bool
+            or row["endpoint_only_clear"] != endpoints_clear
         ):
             raise ValueError("反例几何复算不符")
-    if len(metrics["diagnostics"]) != 6:
+        queries.append(row["actual"]["query"])
+    pairs = [(r["kind"], r["intent"]) for r in metrics["diagnostics"]]
+    if len(pairs) != 6 or set(pairs) != {
+        (k, i) for k in ("hills", "ridge", "channel") for i in ("safe", "impact")
+    }:
         raise ValueError("开发诊断缺失")
     for summary in metrics["diagnostics"]:
         kind, intent = summary["kind"], summary["intent"]
@@ -133,13 +160,15 @@ def inspect_results(folder: Path) -> dict[str, Any]:
         if scene != generate_scene(kind, {"hills": 17, "ridge": 29, "channel": 43}[kind]):
             raise ValueError("场景内容不是已登记开发种子")
         rows = [
-            json.loads(line)
+            loads(line)
             for line in (folder / f"{kind}.{intent}.jsonl").read_text(encoding="utf-8").splitlines()
         ]
         first = MonitorSnapshot.from_json(json.dumps(rows[0]["snapshot"]))
         bare = RemusAdapter(first.physical.config)
         bare.set_state(first.physical)
         monitor = WorldMonitor(bare, scene)
+        if rows[0]["sweep"] is not None or monitor.get_state().to_json() != first.to_json():
+            raise ValueError("诊断初态不符")
         for row in rows[1:]:
             recorded = MonitorSnapshot.from_json(json.dumps(row["snapshot"]))
             actual, sweep = monitor.step(recorded.physical.reference)
@@ -148,16 +177,21 @@ def inspect_results(folder: Path) -> dict[str, Any]:
                 or json.loads(json.dumps(asdict(sweep))) != row["sweep"]
             ):
                 raise ValueError("真实物理轨迹或几何事件被扰动")
+            queries.append(row["sweep"]["query"])
         end = monitor.get_state()
         if (
             len(rows) - 1 != summary["steps"]
             or end.termination_reason != summary["termination_reason"]
+            or summary["scene_hash"] != scene.scene_hash
+            or summary["labels"] != [r["sweep"]["query"]["status"] for r in rows[1:]]
+            or summary["subdivisions"] != [r["sweep"]["query"]["subdivisions"] for r in rows[1:]]
         ):
             raise ValueError("诊断终止摘要不符")
         if (intent == "safe" and (end.terminated or len(rows) != 201)) or (
             intent == "impact" and end.termination_reason != "collision"
         ):
             raise ValueError("诊断实际标签不符合预登记")
+    check_statistics(metrics, queries)
     error = compare_jsonl(
         folder / "neutral.bare.jsonl", folder / "neutral.monitor.jsonl", 1000, 1e-10
     )
@@ -166,6 +200,8 @@ def inspect_results(folder: Path) -> dict[str, Any]:
     timings = read_json(folder / "timings.json")
     for name in ("static", "swept", "monitor"):
         values = metrics["performance"][name]
+        for value in timings[name]:
+            number(value, minimum=0)
         samples = np.asarray(timings[name], dtype=float)
         actual_cost = {
             "count": len(samples),

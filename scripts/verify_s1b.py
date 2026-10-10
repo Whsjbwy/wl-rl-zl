@@ -15,7 +15,7 @@ if __package__ in {None, ""}:
 
 import jsonschema
 
-from scripts.s0_checks import digest, read_json
+from scripts.s0_checks import digest
 from scripts.s0_process import create_run, run_command
 from scripts.s1b_checks import (
     fingerprint,
@@ -24,7 +24,8 @@ from scripts.s1b_checks import (
     required_artifacts,
     test_collection,
 )
-from scripts.verify_s0 import environment_metadata, write_json
+from scripts.strict_json import finite_tree, number, read_json, write_json
+from scripts.verify_s0 import environment_metadata
 from scripts.verify_s1a import validate_report as validate_parent
 
 COMMANDS = {"s1a", "experiments", "demo"}
@@ -94,6 +95,7 @@ def build_commands(source: Path, run: Path) -> list[tuple[str, list[str]]]:
 
 def validate_report(report: dict[str, Any], root: Path, *, numerical: bool = True) -> None:
     """核对结构、全部必需门槛、产物哈希/存在性及实际测试；不接受空清单PASS。"""
+    finite_tree(report)
     jsonschema.validate(report, read_json(root / "docs/schemas/S1B_gate_report.schema.json"))
     if {c["name"] for c in report["checks"]} != CHECKS or len(report["checks"]) != len(CHECKS):
         raise ValueError("必需检查缺失")
@@ -106,6 +108,9 @@ def validate_report(report: dict[str, Any], root: Path, *, numerical: bool = Tru
         if not path.is_relative_to(root.resolve()) or digest(path) != item["sha256"]:
             raise ValueError("产物哈希错误或路径越界")
     if report["status"] == "PASS":
+        for command in report["commands"]:
+            number(command["exit_code"], minimum=0, integer=True)
+            number(command["duration_s"], minimum=0)
         if (
             any(c["status"] != "PASS" for c in report["checks"])
             or any(c["exit_code"] != 0 for c in report["commands"])
@@ -115,15 +120,19 @@ def validate_report(report: dict[str, Any], root: Path, *, numerical: bool = Tru
         run = root / report["run_directory"]
         required_artifacts(run)
         test_collection(run / "s1a/unit.xml")
-        parent = read_json(run / "s1a/gate_report.json")
-        validate_parent(parent, root, inspect=numerical)
-        if parent["status"] != "PASS":
-            raise ValueError("S1-A未通过")
         validate_config(read_json(run / "resolved_config.json"))
         if digest(run / "resolved_config.json") != report["config_sha256"]:
             raise ValueError("配置哈希错误")
         if numerical:
-            inspect_results(run / "experiments")
+            actual = inspect_results(run / "experiments")
+            details = next(c["details"] for c in report["checks"] if c["name"] == "numerical")
+            if details != actual:
+                raise ValueError("gate_report数值details与原始复算不一致")
+        # 先拒绝本阶段坏输入再复算父阶段；所有正向检查保留，不反复浪费故障用例成本。
+        parent = read_json(run / "s1a/gate_report.json")
+        validate_parent(parent, root, inspect=numerical)
+        if parent["status"] != "PASS":
+            raise ValueError("S1-A未通过")
 
 
 def execute(root: Path, source: Path, run: Path) -> dict[str, Any]:
