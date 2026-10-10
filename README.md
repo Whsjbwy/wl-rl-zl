@@ -132,3 +132,20 @@ $env:PYTHONUTF8 = '1'
 打包前要求干净最终提交并核对远端SHA；ZIP及旁哈希不提交Git、不发布Release。
 完整100组恢复、原阶段CSV、JSONL、JUnit、故障日志、CI、来源与许可证均进入审核包。
 命令中的尖括号需替换为真实路径；本机实测命令/结果见S1B_R1报告和最终交付回执。
+
+
+## S1-C 开阔水域 L1 物理核
+
+独立接口为 `auv_env.currents.CurrentField`、`auv_env.l1.adapter.L1Adapter`。
+保持 L0 与原碰撞监控；本轮不将 L1 快照交给 WorldMonitor。
+海流采用完整三维乘积/链式求导，执行器采用 ZOH 解析更新，整体仍为一阶方法。
+
+```powershell
+$env:PYTHONUTF8 = '1'
+.\.venv\Scripts\python.exe scripts/verify_s1c.py --source <固定来源检出>
+.\.venv\Scripts\python.exe scripts/verify_s1c.py --check-report results/s1c/<run_id>/gate_report.json
+.\.venv\Scripts\python.exe scripts/build_review_bundle.py --stage S1C --run results/s1c/<run_id> --ci <真实CI目录> --receipt <远端回执.json>
+```
+
+验收在独立run_id目录保存全量数据，包含一次完整R1父验收；状态以本次真实报告为准。
+S1-C仅为开阔水域物理核；父阶段S1仍PENDING，不包含训练或地形海流耦合。

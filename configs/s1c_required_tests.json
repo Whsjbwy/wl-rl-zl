@@ -1,0 +1,805 @@
+{
+  "reviewed_head": "c7b1af21abdd316f13f1cf4dfb5b3823c51f0cc4",
+  "required": [
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_one_step_order_and_actuator"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_mutable_controller_field_audit"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs0]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs1]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs2]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs3]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs4]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs5]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs6]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs7]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_reference[kwargs8]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_config[kwargs0]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_config[kwargs1]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_config[kwargs2]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_config[kwargs3]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_config[kwargs4]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_config[kwargs5]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_config[kwargs6]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_reference_boundaries_and_frozen_config"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_reset_atomic[eta-value0]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_reset_atomic[nu-value1]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_reset_atomic[actuator-value2]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_reset_atomic[eta-value3]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_reset_atomic[nu-value4]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_advance[-1]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_advance[1.5]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_advance[True]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_invalid_advance[2]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_read_and_advance_equivalence"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_dynamic_failure_atomic"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_falsy_invalid_config_is_rejected[False]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_falsy_invalid_config_is_rejected[0]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_falsy_invalid_config_is_rejected[]"
+    },
+    {
+      "classname": "tests.test_remus_adapter",
+      "name": "test_falsy_invalid_config_is_rejected[invalid3]"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_roundtrip"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_bad_cli[missing]"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_bad_cli[byte]"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_bad_cli[duplicate]"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_bad_cli[traversal]"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_bad_cli[absolute]"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_bad_cli[symlink]"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_redaction_copy_only"
+    },
+    {
+      "classname": "tests.test_review_bundle",
+      "name": "test_bundle_source_from_commit"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_valid_results"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_csv[missing]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_csv[nan]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_csv[time]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_csv[columns]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_csv[count]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_csv[wrong_depth]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_summary[final_depth_m-1]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_summary[path_length_m-nan]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_summary[samples-4]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_summary[all_states_finite-False]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_bad_summary[sample_time_s-1]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_angle_wrap_and_config"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_unique_run"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_command_exit[print('ok')-0]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_command_exit[raise SystemExit(7)-7]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_timeout_and_missing_executable"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_junit"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_mapping_and_isolation"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_false_pass_report"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_source_failure_and_cli"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_utf8_dependency_comments"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_source_drift"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_reference_tolerance"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_path_redaction"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_gate_failure_propagates[False]"
+    },
+    {
+      "classname": "tests.test_s0",
+      "name": "test_gate_failure_propagates[True]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_fingerprint_and_import_scope"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_missing_required_tests"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_actual_child_failure_reaches_cli[nonzero]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_actual_child_failure_reaches_cli[timeout]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_hash_mismatch"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_validator_failure_returns_nonzero[missing_check]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_validator_failure_returns_nonzero[missing_tests]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_validator_failure_returns_nonzero[hash_mismatch]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_validator_failure_returns_nonzero[incomplete_json]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_validator_failure_returns_nonzero[perturbed_trajectory]"
+    },
+    {
+      "classname": "tests.test_s1a_gate",
+      "name": "test_thresholds_cannot_be_relaxed"
+    },
+    {
+      "classname": "tests.test_s1a_regression",
+      "name": "test_short_alignment_and_perturbation"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_child_failure[nonzero]"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_child_failure[timeout]"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_validator_failure_cli[missing_test]"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_validator_failure_cli[missing_artifact]"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_validator_failure_cli[hash]"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_validator_failure_cli[incomplete_json]"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_validator_failure_cli[missing_check]"
+    },
+    {
+      "classname": "tests.test_s1b_gate",
+      "name": "test_B22_fingerprint_recursive_and_thresholds"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B01_rotation[zero]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B01_rotation[yaw90]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B01_rotation[pitch90]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B02_invalid_capsule[0-0.095]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B02_invalid_capsule[-1-0.095]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B02_invalid_capsule[1.6-0]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B02_invalid_capsule[nan-0.095]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B02_total_length_and_sphere"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B03_flat[70.0-CLEAR-9.905]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B03_flat[79.905-COLLISION-0.0]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B03_flat[81.0-COLLISION--1.095]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B04_sloped_tilted_capsule"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B05_gaussian_gradient[point0]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B05_gaussian_gradient[point1]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B05_gaussian_gradient[point2]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B06_global_bound_and_apex_distance"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B07_sphere[side_clear]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B07_sphere[tangent]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B07_sphere[overlap]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B07_sphere[nose_clear]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B07_sphere[nose_hit]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_segment_solid_box[middle_cross]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_segment_solid_box[face_parallel]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_segment_solid_box[edge]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_segment_solid_box[corner]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_segment_solid_box[inside_degenerate]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_capsule_box[0.195-COLLISION]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_capsule_box[0.3-CLEAR]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B08_capsule_box[0.1-COLLISION]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B09_nose_tail[tail]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B09_nose_tail[nose]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B10_body_domain_not_center"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B11_soft_margin"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B12_thin_obstacle_crossing"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B13_rotation_collision"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B14_wrap_and_equivalent_quaternions"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B15_safe_certificate_and_budget"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B14_tiny_rotation_bound_is_nonzero"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B16_general_terrain[79.8-UNCERTAIN]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B16_general_terrain[79.95-COLLISION]"
+    },
+    {
+      "classname": "tests.test_s1b_geometry",
+      "name": "test_B16_general_terrain[20.0-CLEAR]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B17_scene_roundtrip[flat]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B17_scene_roundtrip[slope]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B17_scene_roundtrip[hills]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B17_scene_roundtrip[ridge]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B17_scene_roundtrip[channel]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B17_hash_and_read_only"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B18_monitor_neutral"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B19_branches_snapshots_and_external_mutation"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B19_terminated_replay"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B20_terminal_state_not_rollback"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B21_atomic_restore[hash]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B21_atomic_restore[policy]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B21_atomic_restore[nan]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B21_atomic_restore[missing]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B21_atomic_restore[terminal]"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B21_invalid_scene_pose_reset"
+    },
+    {
+      "classname": "tests.test_s1b_monitor",
+      "name": "test_B20_boundary_and_uncertain_terminal"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_exception_retry[ValueError]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_exception_retry[FloatingPointError]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_exception_retry[RuntimeError]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[type]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[status]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[nan]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[count_bool]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[negative_count]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[certified]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[time]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[witness]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[interval]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_result_atomic[pose]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_monitor",
+      "name": "test_r1_invalid_reference"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_nonnegative_number[True]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_nonnegative_number[False]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_nonnegative_number[1]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_nonnegative_number[nan]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_nonnegative_number[inf]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_nonnegative_number[-1.0]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_json_rejection[{\"x\":NaN}]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_json_rejection[{\"x\":Infinity}]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_json_rejection[{\"x\":1e999}]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_json_rejection[{\"x\":1,\"x\":2}]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_analytic_independent[paired]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_analytic_independent[gradient]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_analytic_independent[input]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_analytic_independent[point]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_analytic_independent[difference]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_denominator[status_counts]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_denominator[uncertain_ratio]"
+    },
+    {
+      "classname": "tests.test_s1b_r1_semantics",
+      "name": "test_r1_denominator[mean_subdivisions]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_snapshot_roundtrip_and_rng"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[version]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[model]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[config]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[hash]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[shape]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[nan]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[controller]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[controller_nan]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[step]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[rng_missing]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[rng_negative]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_invalid_snapshot_is_atomic[reference]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_json_invalid[missing]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_json_invalid[extra]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_json_invalid[nonobject]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_json_invalid[rng]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_json_invalid[config]"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_branch_and_reset_complete"
+    },
+    {
+      "classname": "tests.test_state_snapshot",
+      "name": "test_extreme_step_count_fails_atomically"
+    }
+  ]
+}

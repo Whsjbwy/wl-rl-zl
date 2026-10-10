@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "S1-C物理核原始验收报告",
+  "type": "object",
+  "required": ["stage", "status", "parent_status", "run_id", "run_directory", "tested_content_sha256", "config_sha256", "commands", "details", "artifacts", "unresolved_issues"],
+  "properties": {
+    "stage": {"const": "S1-C"},
+    "status": {"enum": ["PENDING", "PASS", "FAIL", "BLOCKED"]},
+    "parent_status": {"const": "PENDING"},
+    "commands": {"type": "array", "minItems": 4, "maxItems": 4},
+    "details": {"type": "object"},
+    "artifacts": {"type": "array"},
+    "unresolved_issues": {"type": "array"}
+  }
+}
