@@ -115,3 +115,20 @@ $env:PYTHONUTF8 = '1'
 
 实际结果见[中文S1-B报告](docs/reports/S1B_验收报告.md)及[结构化报告](docs/reports/S1B_gate_report.json)。
 胶囊是协议几何近似，未验证海底绕流或完整海洋物理；未实现自主避障，不进入后续训练。
+
+## S1-B-R1 定点修订与审核包
+
+本轮只修订监控异常事务性、验收器独立复算和证据交付；父阶段S1及外部复审仍PENDING。
+异常候选不提交；真实碰撞、越界与UNCERTAIN照常提交步末并终止。历史报告不覆盖。
+
+```powershell
+$env:PYTHONUTF8 = '1'
+.\.venv\Scripts\python.exe scripts/verify_s1b_r1.py --source ../s0-source
+.\.venv\Scripts\python.exe scripts/publish_s1b_r1.py --run results/s1b_r1/<run_id> --source ../s0-source
+.\.venv\Scripts\python.exe scripts/build_review_bundle.py --run results/s1b_r1/<run_id> --before <修复前失败目录> --ci <最终CI下载目录> --receipt <最终远端回执.json>
+.\.venv\Scripts\python.exe scripts/verify_bundle.py review_packages/<实际包名>.zip --extract review_packages/<新的核验目录>
+```
+
+打包前要求干净最终提交并核对远端SHA；ZIP及旁哈希不提交Git、不发布Release。
+完整100组恢复、原阶段CSV、JSONL、JUnit、故障日志、CI、来源与许可证均进入审核包。
+命令中的尖括号需替换为真实路径；本机实测命令/结果见S1B_R1报告和最终交付回执。

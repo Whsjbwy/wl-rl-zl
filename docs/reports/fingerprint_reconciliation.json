@@ -1,0 +1,129 @@
+{
+  "reviewed_head": "2bac576fbca5bd55b55c68da5755fbb17b02737e",
+  "local_content_sha256": "aec4b9309b1f9a32247c38c6b65ebcb2faac31c7341ce2e34720d67ca8fd53d2",
+  "ci_content_sha256": "b192b60561b40c8af02f8271d6106cb99be450248abbffd5c325612d7772137d",
+  "ci_artifact_sha256": "82ccbe87bf417e64e83ee8716653699b502330d76e4ae5593e5583dbb0facb3a",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "local": {
+        "sha256": "e8dca698fd840e3df0c52936ca9ec8a3d88f102668ced86a3479725999e2f821",
+        "bytes": 761,
+        "eol": "LF"
+      },
+      "git": {
+        "blob_sha": "d2d1d2f39ba9b8710b697ac33e0fa1472aafdfa1",
+        "sha256": "e8dca698fd840e3df0c52936ca9ec8a3d88f102668ced86a3479725999e2f821",
+        "bytes": 761,
+        "eol": "LF"
+      },
+      "ci": {
+        "sha256": "5b343eb5e9cb46023a393dfb3e61046e69c503f929fa8af48d2ae0299515eadd",
+        "bytes": 779,
+        "eol": "CRLF",
+        "byte_evidence": "Git blob转CRLF逐字节重建后的SHA与下载CI清单精确相同；CI工件不含源码本身"
+      },
+      "normalized_sha256": "e8dca698fd840e3df0c52936ca9ec8a3d88f102668ced86a3479725999e2f821",
+      "local_normalized_sha256": "e8dca698fd840e3df0c52936ca9ec8a3d88f102668ced86a3479725999e2f821",
+      "ci_normalized_sha256": "e8dca698fd840e3df0c52936ca9ec8a3d88f102668ced86a3479725999e2f821",
+      "content_diff_after_normalization": []
+    },
+    {
+      "path": ".github/workflows/quality.yml",
+      "local": {
+        "sha256": "756914d2e0faa3583c118579f692f7ac3de3bafec86bd99b47943ed1dd37b49f",
+        "bytes": 1211,
+        "eol": "LF"
+      },
+      "git": {
+        "blob_sha": "f008bc836c1c288812fbc93a696d087098e97d5f",
+        "sha256": "756914d2e0faa3583c118579f692f7ac3de3bafec86bd99b47943ed1dd37b49f",
+        "bytes": 1211,
+        "eol": "LF"
+      },
+      "ci": {
+        "sha256": "ced872d304b3fe339fa65b94d7c9b8f49056d21b462e9d6bd3169eb2f5354c25",
+        "bytes": 1246,
+        "eol": "CRLF",
+        "byte_evidence": "Git blob转CRLF逐字节重建后的SHA与下载CI清单精确相同；CI工件不含源码本身"
+      },
+      "normalized_sha256": "756914d2e0faa3583c118579f692f7ac3de3bafec86bd99b47943ed1dd37b49f",
+      "local_normalized_sha256": "756914d2e0faa3583c118579f692f7ac3de3bafec86bd99b47943ed1dd37b49f",
+      "ci_normalized_sha256": "756914d2e0faa3583c118579f692f7ac3de3bafec86bd99b47943ed1dd37b49f",
+      "content_diff_after_normalization": []
+    },
+    {
+      "path": "configs/s1b.json",
+      "local": {
+        "sha256": "c36641109c903af47373c36f8e0123f5a32870235f9e6f5b6c74615ac72625a2",
+        "bytes": 1253,
+        "eol": "LF"
+      },
+      "git": {
+        "blob_sha": "09179da42568ae88131164680c0c1f1516749b20",
+        "sha256": "c36641109c903af47373c36f8e0123f5a32870235f9e6f5b6c74615ac72625a2",
+        "bytes": 1253,
+        "eol": "LF"
+      },
+      "ci": {
+        "sha256": "6586e25445c2ac83cb4f0f0f5be2f1ac32cb0ff3ee0219859fb79ef8e559539a",
+        "bytes": 1299,
+        "eol": "CRLF",
+        "byte_evidence": "Git blob转CRLF逐字节重建后的SHA与下载CI清单精确相同；CI工件不含源码本身"
+      },
+      "normalized_sha256": "c36641109c903af47373c36f8e0123f5a32870235f9e6f5b6c74615ac72625a2",
+      "local_normalized_sha256": "c36641109c903af47373c36f8e0123f5a32870235f9e6f5b6c74615ac72625a2",
+      "ci_normalized_sha256": "c36641109c903af47373c36f8e0123f5a32870235f9e6f5b6c74615ac72625a2",
+      "content_diff_after_normalization": []
+    },
+    {
+      "path": "docs/method_code_map.md",
+      "local": {
+        "sha256": "b856c24eaae100f90bfb0dab990222e5a31d7fbf816b782004c8ccbacf156875",
+        "bytes": 10480,
+        "eol": "LF"
+      },
+      "git": {
+        "blob_sha": "cabf5b5950ca349a2cc5b803f4db84f22c995a2c",
+        "sha256": "b856c24eaae100f90bfb0dab990222e5a31d7fbf816b782004c8ccbacf156875",
+        "bytes": 10480,
+        "eol": "LF"
+      },
+      "ci": {
+        "sha256": "52d3e9895b0bc0f116d54dfe88fa9e183132fff50c06bc42ed37e8d6624a2290",
+        "bytes": 10619,
+        "eol": "CRLF",
+        "byte_evidence": "Git blob转CRLF逐字节重建后的SHA与下载CI清单精确相同；CI工件不含源码本身"
+      },
+      "normalized_sha256": "b856c24eaae100f90bfb0dab990222e5a31d7fbf816b782004c8ccbacf156875",
+      "local_normalized_sha256": "b856c24eaae100f90bfb0dab990222e5a31d7fbf816b782004c8ccbacf156875",
+      "ci_normalized_sha256": "b856c24eaae100f90bfb0dab990222e5a31d7fbf816b782004c8ccbacf156875",
+      "content_diff_after_normalization": []
+    },
+    {
+      "path": "docs/schemas/S1B_gate_report.schema.json",
+      "local": {
+        "sha256": "70c01bfd90b6b573c7ac77802a1f19af65396660e00d155af7dc76e9dde25734",
+        "bytes": 1742,
+        "eol": "LF"
+      },
+      "git": {
+        "blob_sha": "d5ba42ea29444881f228fe423e3d945d327fa891",
+        "sha256": "70c01bfd90b6b573c7ac77802a1f19af65396660e00d155af7dc76e9dde25734",
+        "bytes": 1742,
+        "eol": "LF"
+      },
+      "ci": {
+        "sha256": "a3ca243c35fab9d6f58cfdbec6536097c77be919af1f10c7076057738c472b07",
+        "bytes": 1839,
+        "eol": "CRLF",
+        "byte_evidence": "Git blob转CRLF逐字节重建后的SHA与下载CI清单精确相同；CI工件不含源码本身"
+      },
+      "normalized_sha256": "70c01bfd90b6b573c7ac77802a1f19af65396660e00d155af7dc76e9dde25734",
+      "local_normalized_sha256": "70c01bfd90b6b573c7ac77802a1f19af65396660e00d155af7dc76e9dde25734",
+      "ci_normalized_sha256": "70c01bfd90b6b573c7ac77802a1f19af65396660e00d155af7dc76e9dde25734",
+      "content_diff_after_normalization": []
+    }
+  ],
+  "conclusion": "五文件均为LF/CRLF差异；规范化内容一致，历史指纹未重写。"
+}

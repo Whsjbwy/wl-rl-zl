@@ -11,3 +11,4 @@ results/
 .env.*
 .ruff_cache/
 .mypy_cache/
+review_packages/
