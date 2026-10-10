@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File ".\scripts\verify_s0.py", line 120, in check
+    details = operation()
+              ^^^^^^^^^^^
+  File ".\scripts\verify_s0.py", line 151, in <lambda>
+    lock_ok = check("lock", lambda: check_lock(root))
+                                    ^^^^^^^^^^^^^^^^
+  File ".\scripts\s0_checks.py", line 184, in check_lock
+    for line in (root / name).read_text().splitlines():
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python312>\Lib\pathlib.py", line 1028, in read_text
+    return f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xac in position 6: illegal multibyte sequence

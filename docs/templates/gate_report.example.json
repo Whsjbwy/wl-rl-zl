@@ -1,0 +1,37 @@
+{
+  "_template_only": true,
+  "stage": "S0",
+  "task_version": "1.0",
+  "status": "PENDING",
+  "target_repository": "Whsjbwy/wl-rl-zl",
+  "source_repository": "Whsjbwy/AUVWorkPlace",
+  "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1",
+  "tested_base_commit": null,
+  "tested_content_sha256": null,
+  "config_sha256": null,
+  "working_tree_dirty": null,
+  "execution_environment": {
+    "os": null,
+    "python": null,
+    "device": null
+  },
+  "run_id": null,
+  "commands": [],
+  "checks": [],
+  "artifacts": [],
+  "unresolved_issues": [
+    "此为未执行模板；实际报告必须由本次真实检查生成。"
+  ],
+  "windows_validation": "NOT_RUN",
+  "remote_sync": {
+    "status": "PENDING",
+    "branch": null,
+    "local_commit": null,
+    "remote_commit": null,
+    "ci_status": "NOT_RUN"
+  },
+  "next_stage": {
+    "name": "S1",
+    "authorized": false
+  }
+}

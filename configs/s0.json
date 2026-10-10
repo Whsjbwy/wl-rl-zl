@@ -1,0 +1,13 @@
+{
+  "duration_s": 200.0,
+  "dt_s": 0.02,
+  "samples": 10001,
+  "parameters": {"duration": 200, "depth": 30, "heading": 50, "rpm": 1525, "current": 0.5, "current_direction": 170, "no_animation": true},
+  "reference": {"final_depth_m": 29.74975, "final_heading_deg": 49.99890, "path_length_m": 453.55089},
+  "tolerance": {"final_depth_m": 0.001, "final_heading_deg": 0.001, "path_length_m": 0.01},
+  "time_tolerance_s": 1e-9,
+  "summary_tolerance": 1e-8,
+  "timeout_s": 300,
+  "expected_upstream_tests": 4,
+  "seed": null
+}

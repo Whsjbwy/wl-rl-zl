@@ -1,0 +1,5 @@
+# 仅第一方检查工具；Ruff (MIT)、mypy (MIT)、jsonschema (MIT)。
+# 不替换 requirements-lock.txt 的基线版本。
+ruff==0.13.3
+mypy==1.18.2
+jsonschema==4.25.1

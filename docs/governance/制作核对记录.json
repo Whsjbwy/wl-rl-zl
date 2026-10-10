@@ -1,0 +1,17 @@
+{
+  "document": "AUV_实验实施方案_仓库审计版_V1.docx",
+  "sha256": "a4016b8f759b68aa72f99d586d7e6e7ae988dda7d2bfb8cefed215d98c93ee4d",
+  "governance_version": "1.0",
+  "source_baseline_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1",
+  "target_repository": "Whsjbwy/wl-rl-zl",
+  "target_head_observed": "829a13135b79c31f60d9aa1383fee3ad785327bd",
+  "source_read": "GitHub connector, pinned README; actual project document chapter 13 reviewed",
+  "remote_write_attempt": {
+    "branch": "codex/governance-v1-20261010",
+    "status": "BLOCKED",
+    "http_status": 403,
+    "message": "Resource not accessible by integration"
+  },
+  "changes_to_remote": "none confirmed; branch creation was rejected",
+  "simulation_executed_during_document_creation": false
+}

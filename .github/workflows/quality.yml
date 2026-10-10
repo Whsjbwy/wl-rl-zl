@@ -1,0 +1,35 @@
+name: S0 quality
+on:
+  push:
+    branches: ['codex/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-s0-windows:
+    name: Windows Python 3.12 - full 200s S0
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install frozen baseline and checker tools
+        run: |
+          python -m pip install -r requirements-lock.txt -r requirements-dev.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Fetch fixed source objects
+        run: |
+          git clone --no-checkout https://github.com/Whsjbwy/AUVWorkPlace.git "$env:RUNNER_TEMP/s0-source"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Full regression and first-party checks
+        run: python scripts/verify_s0.py --source "$env:RUNNER_TEMP/s0-source"
+      - name: Preserve actual evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s0-windows-evidence
+          path: results/s0/
+          retention-days: 14

@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "word_exists": true,
+    "agents_under_32k": true,
+    "target_repo_in_rules": true,
+    "frozen_source_agrees": true,
+    "templates_pending": true,
+    "remote_write_reported_blocked": true,
+    "markdown_code_fences_balanced": true,
+    "no_hidden_web_tokens": true,
+    "normal_12_pt": true,
+    "normal_simsun": true,
+    "all_three_line_tables": true,
+    "all_explicit_text_black": true,
+    "no_ooxml_formula_claim_needed": true,
+    "no_empty_pages": true,
+    "page_visual_review_completed": true
+  },
+  "all_checks_passed": true,
+  "rendered_pages": 15,
+  "tables": 5,
+  "agents_utf8_bytes": 15207,
+  "note": "This validates the delivered documents only; no S0 simulation or repository code tests were executed in this authoring task."
+}

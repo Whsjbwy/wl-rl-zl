@@ -1,0 +1,12 @@
+# 冻结快照按字节保存，禁止 Windows 自动换行转换。
+PythonVehicleSimulator/** -text
+examples/** -text
+run_remus.py -text
+run_remus.cmd -text
+requirements-lock.txt -text
+docs/provenance/source_readme.md -text
+# Windows 证据保留 CRLF；空白检查识别 CR 为换行，仍检查真实行尾空格。
+docs/reports/evidence/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.py text eol=lf
+PythonVehicleSimulator/**/*.py -text
+run_remus.py -text

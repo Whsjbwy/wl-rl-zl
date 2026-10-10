@@ -1,0 +1,276 @@
+{
+  "source_url": "https://github.com/Whsjbwy/AUVWorkPlace.git",
+  "source_commit": "c2dfbd4f4425d29bdcba98294563cda19890cdb1",
+  "upstream_commit": "a93d1938ba1f78f2580c24c73f003091b2f03cd0",
+  "imported_at": "2026-10-10T06:33:25.393353+00:00",
+  "files": [
+    {
+      "source_path": "PythonVehicleSimulator/.gitignore",
+      "target_path": "PythonVehicleSimulator/.gitignore",
+      "source_blob_sha": "1101f82ebe32355b12221be03642662353a43258",
+      "sha256": "d43be19a17cf1f1d107b19a918350b8dc8cbdee5065bd3bb16fe0d973297cb6a",
+      "size_bytes": 1533
+    },
+    {
+      "source_path": "PythonVehicleSimulator/LICENSE",
+      "target_path": "PythonVehicleSimulator/LICENSE",
+      "source_blob_sha": "248f6fc115c7024230f89517a954ef9d04fdd8fe",
+      "sha256": "7add264a72e2d41f1c1f573e61ef8bfd3a505cbfcf245b919ae8167067c5f812",
+      "size_bytes": 1075
+    },
+    {
+      "source_path": "PythonVehicleSimulator/README.md",
+      "target_path": "PythonVehicleSimulator/README.md",
+      "source_blob_sha": "572d7c1efbac97d577047df6e463ce3e069922b9",
+      "sha256": "9f33eb1729aa716e3991762f4cab7ba289f182325bcd4b0c82627db33f2f30b3",
+      "size_bytes": 3912
+    },
+    {
+      "source_path": "PythonVehicleSimulator/__init__.py",
+      "target_path": "PythonVehicleSimulator/__init__.py",
+      "source_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "source_path": "PythonVehicleSimulator/pyproject.toml",
+      "target_path": "PythonVehicleSimulator/pyproject.toml",
+      "source_blob_sha": "fa7093a33c048d9db6e0eb3b4d8daa57426754e3",
+      "sha256": "81b143cdc5a3cdd15e042a16e3b1d88d0c7d9bad46901c091c031bd1664c9c5a",
+      "size_bytes": 84
+    },
+    {
+      "source_path": "PythonVehicleSimulator/setup.cfg",
+      "target_path": "PythonVehicleSimulator/setup.cfg",
+      "source_blob_sha": "f5748ea97d5ffe4263bddb9038fdcb25846c9d68",
+      "sha256": "5f8bf3a7d78228c98c765cbd3f806fe818b4ad4d2280dbc485374c7811977727",
+      "size_bytes": 800
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/__init__.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/__init__.py",
+      "source_blob_sha": "cee5099456706c3d6a07319b88989b139ab88b3b",
+      "sha256": "35fd99157df74cdff396e2d1c517f24700620d4e9e058cb4c9ce37a47757af88",
+      "size_bytes": 213
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/actuator.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/actuator.py",
+      "source_blob_sha": "6141c40d57a4c6acf04e09316c0746cc471b6160",
+      "sha256": "4fa962b5332ec70360d5d48499a4e08b5b813cbc67e83644c6247e34505c2bb3",
+      "size_bytes": 7223
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/control.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/control.py",
+      "source_blob_sha": "7b434fea7be962c8dd0fb81240fc6d6faebe85fe",
+      "sha256": "a5c7e4162e8dc436cd5ede1f1f535f981dcb26eda3a059fd3e2862ca79fb6d09",
+      "size_bytes": 3065
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/gnc.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/gnc.py",
+      "source_blob_sha": "8a0054ad3f730b9250ed778e9c4bb99e7599f076",
+      "sha256": "2f5c5a8330d411f3ee863eb635faa40f794fd4dc274fe3b0a7a9c3526eb4a476",
+      "size_bytes": 11583
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/guidance.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/guidance.py",
+      "source_blob_sha": "b57520e9926e84185ec0a2927a7042ee30417352",
+      "sha256": "c3f70bf9ad494c260457fad774c6a6c3ae5d94910ef65ff2edf621688f245762",
+      "size_bytes": 1090
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/mainLoop.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/mainLoop.py",
+      "source_blob_sha": "d8ac390bf3a85f3b1e25828a72818aa199d98e7b",
+      "sha256": "49d8d1245120e836de1f0e2510155b9f832ec5da62e7f9495b1fb664ae644e9d",
+      "size_bytes": 5464
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/models.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/models.py",
+      "source_blob_sha": "1ebf0615ab1c78cc66953784fc65dfb22d936fee",
+      "sha256": "d1fd29821097b815d6a0755806c5a8da9e8613d2f0996e6e0bf63c02671bf1e4",
+      "size_bytes": 3601
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/plotTimeSeries.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/lib/plotTimeSeries.py",
+      "source_blob_sha": "4b9db2b608c25ff201ed85d043f6abca8cf5570e",
+      "sha256": "85070a395c0d7d2d9508649c67cfe816eb5201679a64bca0cf59767d09fe8535",
+      "size_bytes": 17813
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/main.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/main.py",
+      "source_blob_sha": "4346630ecb2f82d8fca96659e44daa5cb37c6363",
+      "sha256": "af5d6a3eadb03c2316de1217cb015ba6419a7aaa0a944eddb3f167309fbb0071",
+      "size_bytes": 3889
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/DSRV.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/DSRV.py",
+      "source_blob_sha": "0816dfa8f9e45ba087fe0c2badb3a91cf9870a3c",
+      "sha256": "4bd88dc24d996e85091e513605930b191742b526237bafc558bbdf79b1e355b8",
+      "size_bytes": 6658
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/ROVzefakkel.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/ROVzefakkel.py",
+      "source_blob_sha": "da7a038e4bc433ad4f8583172f43946290f02cb1",
+      "sha256": "efb048fc60932cbbb706e19b7cfb0e530b57c493db6525252b0ec28125606b28",
+      "size_bytes": 7328
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/__init__.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/__init__.py",
+      "source_blob_sha": "202ed8bbf73003c5c49a7e9ca1195deaa9a5cbd7",
+      "sha256": "b978a4572c1d431ea8674b7295e445fd614f27174f98103c63684a01cc7b3663",
+      "size_bytes": 280
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/frigate.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/frigate.py",
+      "source_blob_sha": "750e0a9ddf18a9f559fddeb20cef35caa3af5224",
+      "sha256": "e7bf101acb76b525f90a782c7f7671e155c614e8335fe16d7de88c5d553451db",
+      "size_bytes": 7477
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/otter.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/otter.py",
+      "source_blob_sha": "33fb2b7d38c78dc092097b32a9dcd3850a9258ad",
+      "sha256": "4823db16441c3e90bf3dc15c0ea7bd2b55d5663c32f17fac7e7dbc608b0b64d9",
+      "size_bytes": 13953
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/remus100.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/remus100.py",
+      "source_blob_sha": "0f77b018a5b3550af12dca5341ba8beebb99dd32",
+      "sha256": "54e872b819a5609614ec31584347e4a304c271f3271abc87b7b4f32dd34b2943",
+      "size_bytes": 20263
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/semisub.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/semisub.py",
+      "source_blob_sha": "0b6f5533bf12f293592101b7b8768f201f5d0a2b",
+      "sha256": "edcc158ec464bcf93b1daee5de94ac37b0671928ac1937e7c8f87cbae91de7c2",
+      "size_bytes": 9163
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/shipClarke83.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/shipClarke83.py",
+      "source_blob_sha": "34696600b4a1384db90504a11eba5d8b3c16aef6",
+      "sha256": "032cb3afaee4801f4eacb517a4337f943dd8c2664a9434d2c4d980c710dafcd8",
+      "size_bytes": 9447
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/supply.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/supply.py",
+      "source_blob_sha": "28cfc2b10d255bc4242ba7d555c705eaf671f037",
+      "sha256": "c1909dd1419ab7cbb82dacdfff6f24c6c1071b3b30999cdc754d28819a96b071",
+      "size_bytes": 8670
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/tanker.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/tanker.py",
+      "source_blob_sha": "f8c51ad568224260c3585040d0ff8ab9dbd2855f",
+      "sha256": "e555d149b36809ccbe5f8a980700b04a65d11eb8c541fa7b5f939e2f84ee4dfe",
+      "size_bytes": 10481
+    },
+    {
+      "source_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/torpedo.py",
+      "target_path": "PythonVehicleSimulator/src/python_vehicle_simulator/vehicles/torpedo.py",
+      "source_blob_sha": "cde3c2ab85ad34197326f43696885fe8a233b0b6",
+      "sha256": "e8ddbe0aca32bbbf6c44ff5d85fc0ea55ff79193ca01a249c90f727bfc51c729",
+      "size_bytes": 17038
+    },
+    {
+      "source_path": "PythonVehicleSimulator/tests/test_crossflow_drag.py",
+      "target_path": "PythonVehicleSimulator/tests/test_crossflow_drag.py",
+      "source_blob_sha": "d6d75882ab2a780e4c031338c32d5295d613be61",
+      "sha256": "19554c27b50a197e6fc6e6a37ab0a840436c04982caf9630c85ad8043e17b20a",
+      "size_bytes": 1714
+    },
+    {
+      "source_path": "PythonVehicleSimulator/tests/test_propeller_advance_speed.py",
+      "target_path": "PythonVehicleSimulator/tests/test_propeller_advance_speed.py",
+      "source_blob_sha": "cfc2f572851bd60d10ce263d71c228ce5b3988bb",
+      "sha256": "4df9c902a036a5a4d9af2dc533ddd7d3359846b3b2a1286ab7e699f06a82f7ef",
+      "size_bytes": 1696
+    },
+    {
+      "source_path": "PythonVehicleSimulator/tests/test_simulate.py",
+      "target_path": "PythonVehicleSimulator/tests/test_simulate.py",
+      "source_blob_sha": "695fab67b6326eeaa80411aae785d9a77e6b326c",
+      "sha256": "c56c4daaf1b54c2726296f62e6f2c217e3fbb87cbfa112719b3c173d6d9737d7",
+      "size_bytes": 2901
+    },
+    {
+      "source_path": "README.md",
+      "target_path": "docs/provenance/source_readme.md",
+      "source_blob_sha": "07815cdd0d94aa774575eec95c36e0f23914ba20",
+      "sha256": "88a949d79f5f1d3388e0e6fd7b2c647e506fe3d99a614f8e230b0998620b04f1",
+      "size_bytes": 3220
+    },
+    {
+      "source_path": "examples/states.png",
+      "target_path": "examples/states.png",
+      "source_blob_sha": "5a38ef642805561038bbaa407c6c11b76ea8951e",
+      "sha256": "96cc9e3001ffabf758ef1886145176aefc58e37d47edcf8b62a5202709f28ddc",
+      "size_bytes": 196033
+    },
+    {
+      "source_path": "examples/summary.json",
+      "target_path": "examples/summary.json",
+      "source_blob_sha": "512fc9d704fe875e11fdd3e0f50191e1cedf2443",
+      "sha256": "39acfce5d2e0ff1a430d0bfeed6e7241d26a45bd95b435ad66c21baae744d796",
+      "size_bytes": 545
+    },
+    {
+      "source_path": "examples/trajectory.png",
+      "target_path": "examples/trajectory.png",
+      "source_blob_sha": "73f6cbaa8a01324794354439249714a15874191c",
+      "sha256": "17ed0c919574cca06fe54027d302878007a13955839f7928a503fc7bdfca1fcf",
+      "size_bytes": 178300
+    },
+    {
+      "source_path": "requirements-lock.txt",
+      "target_path": "requirements-lock.txt",
+      "source_blob_sha": "d535694fd432c152db670f502ab2d5d7fe790342",
+      "sha256": "bf1c7e386a04d911d26ad41305901a27452022194ee0d6eff4c90e3ec2711e6d",
+      "size_bytes": 295
+    },
+    {
+      "source_path": "run_remus.cmd",
+      "target_path": "run_remus.cmd",
+      "source_blob_sha": "4f8025204050eeb32f87ac3bcac126c4604252b5",
+      "sha256": "5d57dac4821112ad3ad4a344ca2600a1b838c9bfcc1b8a088b1d7b42ed49754d",
+      "size_bytes": 264
+    },
+    {
+      "source_path": "run_remus.py",
+      "target_path": "run_remus.py",
+      "source_blob_sha": "d797e4e5d7b43567de376428ba7527590fa7f2b5",
+      "sha256": "01fbfe67d209af8f6172a23df221b15022d584d726a27a8ec2de0dfdbb861531",
+      "size_bytes": 5580
+    }
+  ],
+  "gitignore_merge": {
+    "source_blob_sha": "bde04fefc4d668d3db253a8633c279102ce71ade",
+    "source_rules": [
+      ".venv/",
+      "__pycache__/",
+      "*.py[cod]",
+      ".pytest_cache/",
+      "*.egg-info/",
+      "build/",
+      "dist/",
+      "results/",
+      "3D_animation.gif",
+      ".env",
+      ".env.*"
+    ]
+  }
+}
